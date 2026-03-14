@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mensajes para Copiar y Pegar 💕🤗🎂 | CopiarCaracteres</title>
+  <meta name="description" content="Mensajes bonitos para copiar y pegar en WhatsApp, Instagram y más: amor, apoyo, cumpleaños, motivación, condolencias y más. Gratis y listos para enviar."/>
+  <meta name="keywords" content="mensajes de amor para copiar, mensaje de cumpleaños para copiar, mensajes de apoyo copiar, mensajes bonitos whatsapp, mensajes para copiar pegar, frases de amor copiar"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://copiarcaracteres.com/mensajes.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0a0a0a; --surface:#111; --border:#222; --accent:#e8ff47; --text:#f0f0f0; --muted:#555; --btn-bg:#161616; --btn-hover:#1e1e1e; --btn-border:#2a2a2a; }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:48px 20px 60px; position:relative; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(232,255,71,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; z-index:0; }
+    .wrapper { position:relative; z-index:1; width:100%; max-width:720px; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; margin-bottom:32px; transition:color 0.15s; }
+    .back-link:hover { color:var(--accent); }
+    .back-link::before { content:'←'; font-size:14px; }
+    header { text-align:center; margin-bottom:36px; }
+    .logo { font-size:13px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; opacity:0; animation:fadeUp 0.5s ease forwards 0.1s; }
+    h1 { font-size:clamp(1.8rem,5vw,3rem); font-weight:800; letter-spacing:-0.02em; line-height:1.1; opacity:0; animation:fadeUp 0.5s ease forwards 0.2s; }
+    h1 span { color:var(--accent); }
+    .subtitle { font-size:14px; color:var(--muted); margin-top:10px; font-family:'JetBrains Mono',monospace; opacity:0; animation:fadeUp 0.5s ease forwards 0.3s; }
+
+    /* Category tabs */
+    .cats { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:28px; opacity:0; animation:fadeUp 0.5s ease forwards 0.4s; }
+    .cat-btn { background:var(--btn-bg); border:1px solid var(--btn-border); color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:8px 14px; border-radius:100px; cursor:pointer; transition:all 0.15s; white-space:nowrap; }
+    .cat-btn.active { background:var(--accent); color:#000; border-color:var(--accent); }
+    .cat-btn:not(.active):hover { border-color:var(--accent); color:var(--text); }
+
+    /* Messages */
+    .messages-grid { display:flex; flex-direction:column; gap:10px; opacity:0; animation:fadeUp 0.5s ease forwards 0.5s; }
+    .msg-card { background:var(--btn-bg); border:1px solid var(--btn-border); border-radius:6px; padding:18px 20px; cursor:pointer; transition:border-color 0.15s,background 0.15s,transform 0.1s; position:relative; }
+    .msg-card:hover { border-color:var(--accent); background:var(--btn-hover); transform:translateX(4px); }
+    .msg-card:active { transform:translateX(0); }
+    .msg-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+    .msg-emoji { font-size:20px; }
+    .msg-copy { font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); font-family:'JetBrains Mono',monospace; }
+    .msg-card:hover .msg-copy { color:var(--accent); }
+    .msg-text { font-size:14px; line-height:1.8; color:#ccc; }
+
+    .divider { width:100%; height:1px; background:var(--border); margin:28px 0; }
+    .toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--accent); color:#000; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:10px 22px; border-radius:100px; opacity:0; transition:transform 0.25s ease,opacity 0.25s ease; z-index:100; pointer-events:none; }
+    .toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+    footer { text-align:center; font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace; }
+    footer span { color:var(--accent); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <a href="/" class="back-link">Inicio</a>
+  <header>
+    <div class="logo">✦ CopiarCaracteres</div>
+    <h1>Mensajes para <span>Copiar</span></h1>
+    <p class="subtitle">// clic en cualquier mensaje para copiarlo</p>
+  </header>
+
+  <!-- Categorías -->
+  <div class="cats" id="cats"></div>
+
+  <!-- Mensajes -->
+  <div class="messages-grid" id="messagesGrid"></div>
+
+  <div class="divider"></div>
+  <footer><span>CopiarCaracteres</span> · <a href="/" style="color:var(--muted);text-decoration:none">Inicio</a> · <a href="/privacidad.html" style="color:var(--muted);text-decoration:none">Privacidad</a></footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+  const categories = [
+    {
+      id: 'amor', label: '💕 Amor', messages: [
+        { emoji:'💕', text:'Eres la persona más especial que ha llegado a mi vida. Gracias por estar siempre ahí, por tu amor incondicional y por hacerme sentir que todo es posible cuando estás conmigo. Te amo más de lo que las palabras pueden expresar.' },
+        { emoji:'❤️', text:'Cada día que pasa me doy cuenta de lo afortunado/a que soy de tenerte. Tu sonrisa ilumina mis días y tu amor me da fuerza para enfrentar cualquier cosa. Eres mi persona favorita en el mundo entero.' },
+        { emoji:'🌹', text:'No necesito palabras perfectas para decirte lo que siento. Solo sé que cuando estás cerca, el mundo tiene más color, más sentido y más alegría. Gracias por existir y por elegirme cada día.' },
+        { emoji:'💫', text:'Si pudiera volver a elegir, te elegiría a ti mil veces más. Eres mi calma, mi hogar y mi mejor aventura. Te amo hoy, mañana y siempre.' },
+        { emoji:'🥰', text:'Hay personas que llegan a tu vida y la cambian para siempre. Tú eres una de esas personas. Gracias por tu amor, tu paciencia y por hacerme mejor persona cada día.' },
+        { emoji:'💌', text:'Solo quiero que sepas que pienso en ti todo el tiempo. Que me alegra el día saber que existes. Que me hace feliz cada mensaje tuyo. Que te quiero muchísimo.' },
+      ]
+    },
+    {
+      id: 'apoyo', label: '🤗 Apoyo', messages: [
+        { emoji:'🤗', text:'Sé que estás pasando por un momento difícil, pero quiero que sepas que no estás solo/a. Estoy aquí para ti, para lo que necesites, cuando lo necesites. Eres más fuerte de lo que crees y saldrás adelante.' },
+        { emoji:'💪', text:'La vida a veces nos pone pruebas muy duras, pero tú tienes la fuerza para superarlas. No te rindas. Cada día que sigues adelante es una victoria. Estoy orgulloso/a de ti y te apoyo con todo mi corazón.' },
+        { emoji:'🌟', text:'En los momentos difíciles es cuando descubrimos de qué estamos hechos. Tú eres de las personas más valientes que conozco. Confío en ti y sé que vas a salir de esto más fuerte que nunca.' },
+        { emoji:'🙏', text:'No tengo las palabras perfectas para aliviar tu dolor, pero sí tengo mis brazos abiertos, mi corazón dispuesto y todo el tiempo del mundo para escucharte. Aquí estoy, siempre.' },
+        { emoji:'☀️', text:'Los días nublados no duran para siempre. Pronto el sol volverá a brillar para ti. Mientras tanto, cuenta conmigo para lo que necesites. No estás solo/a en esto.' },
+        { emoji:'💙', text:'Que sepas que aunque no siempre encuentro las palabras correctas, mi cariño por ti es enorme. Estoy pensando en ti y deseando que todo mejore pronto. Ánimo, lo vas a lograr.' },
+      ]
+    },
+    {
+      id: 'cumple', label: '🎂 Cumpleaños', messages: [
+        { emoji:'🎂', text:'¡Feliz cumpleaños! Que este nuevo año de vida esté lleno de momentos increíbles, personas que te quieran y sueños que se hagan realidad. Te mereces todo lo bueno que la vida tiene para ofrecer. ¡Que lo disfrutes muchísimo!' },
+        { emoji:'🎉', text:'Hoy es un día muy especial porque naciste tú, y el mundo es definitivamente mejor con tu presencia en él. ¡Feliz cumpleaños! Que cada deseo que pides al soplar las velas se convierta en realidad.' },
+        { emoji:'🌟', text:'Un año más de vida significa un año más de aprendizajes, de risas, de aventuras y de momentos increíbles. ¡Feliz cumpleaños! Espero que este año sea el mejor de todos hasta ahora.' },
+        { emoji:'🥳', text:'¡Hoy es tu día y mereces que todo sea perfecto! Que tengas una celebración increíble rodeado/a de las personas que más te quieren. ¡Muchos años más y que todos sean llenos de felicidad!' },
+        { emoji:'🎁', text:'Feliz cumpleaños a esa persona increíble que siempre tiene una sonrisa para dar, palabras de aliento cuando se necesitan y un corazón enorme. ¡Que este día sea tan especial como tú!' },
+        { emoji:'💐', text:'Que en tu cumpleaños recibas tanto amor como el que tú das, tanta alegría como la que traes a los demás y tantas bendiciones como las que mereces. ¡Feliz cumpleaños!' },
+      ]
+    },
+    {
+      id: 'motivacion', label: '💪 Motivación', messages: [
+        { emoji:'🔥', text:'No importa cuántas veces caigas, lo que importa es cuántas veces te levantes. Eres capaz de lograr cosas increíbles. No te rindas cuando el camino se pone difícil — ese es precisamente el momento en que más cerca estás de lograrlo.' },
+        { emoji:'⚡', text:'Hoy es un buen día para ser la mejor versión de ti mismo/a. Levántate, respira profundo y recuerda por qué empezaste. Tienes todo lo que necesitas dentro de ti para triunfar.' },
+        { emoji:'🌟', text:'El éxito no es un destino, es un viaje. Cada pequeño paso que das hoy te acerca más a donde quieres llegar. Sigue adelante, aunque sea despacio. Lo importante es no parar.' },
+        { emoji:'💡', text:'No compares tu capítulo 1 con el capítulo 20 de alguien más. Todos tenemos nuestro propio ritmo y nuestro propio camino. Confía en el tuyo y sigue avanzando.' },
+        { emoji:'🚀', text:'Los grandes logros comienzan con una decisión: la decisión de intentarlo. No esperes el momento perfecto, el momento perfecto es ahora. Empieza hoy, aunque sea con un pequeño paso.' },
+        { emoji:'🏆', text:'Recuerda por qué empezaste. Recuerda a dónde quieres llegar. Y recuerda que eres capaz. Cuando sientas que no puedes más, es porque estás a punto de superar tus propios límites.' },
+      ]
+    },
+    {
+      id: 'buenosdias', label: '☀️ Buenos días', messages: [
+        { emoji:'☀️', text:'Buenos días 🌞 Que este nuevo día te traiga energía, paz y muchas razones para sonreír. Que todo lo que hoy empieces llegue a buen puerto y que las personas que amas estén bien. ¡Buen día!' },
+        { emoji:'🌸', text:'Buenos días ✨ Hoy es un día lleno de posibilidades. Aprovéchalo al máximo, sé amable contigo mismo/a y recuerda que cada día es una nueva oportunidad para ser feliz.' },
+        { emoji:'🌅', text:'¡Buenos días! Que el sol de hoy ilumine tu camino, que el viento lleve lejos tus preocupaciones y que cada hora de este día esté llena de cosas buenas. ¡Que tengas un día increíble!' },
+        { emoji:'🍀', text:'Buenos días 🍀 Que este día sea lleno de buena energía, momentos especiales y personas lindas. Que todo fluya y que al final del día puedas decir que valió la pena. ¡Ánimo!' },
+      ]
+    },
+    {
+      id: 'buenasnoches', label: '🌙 Buenas noches', messages: [
+        { emoji:'🌙', text:'Buenas noches 🌙✨ Que descanses profundo, que tus sueños sean dulces y que mañana amanezca lleno de nuevas oportunidades. Que la noche te traiga paz y recarga de energía para el día de mañana.' },
+        { emoji:'⭐', text:'Buenas noches 💫 Que mientras duermes, todas tus preocupaciones se vayan lejos y solo quede tranquilidad. Mañana será un nuevo día lleno de posibilidades. Descansa mucho.' },
+        { emoji:'🌛', text:'Que tengas una noche tranquila y reparadora. Que tus sueños sean tan bonitos como tú te mereces. Buenas noches y hasta mañana 🌙' },
+        { emoji:'💤', text:'Buenas noches 🌙 Cierra los ojos, suelta todo lo que te preocupa y descansa. Mañana el mundo seguirá ahí y tú estarás más fuerte para enfrentarlo. Dulces sueños.' },
+      ]
+    },
+    {
+      id: 'amistad', label: '👫 Amistad', messages: [
+        { emoji:'👫', text:'Gracias por ser el tipo de amigo/a que todos quisieran tener. Por estar en los momentos buenos y en los malos, por las risas que no tienen fin y por los consejos que siempre llegan cuando más los necesito. Te valoro muchísimo.' },
+        { emoji:'🤝', text:'Hay amigos y hay amigos del alma. Tú eres de los segundos. De los que están sin que tengas que pedirlo, de los que te dicen la verdad aunque duela y de los que celebran tus logros como si fueran propios. Gracias por existir.' },
+        { emoji:'💛', text:'No sé cómo agradecerte todo lo que has hecho por mí. Tu amistad es uno de los regalos más grandes que la vida me ha dado. Espero que lo sepas y que nunca te falte alguien que te quiera tanto como yo te quiero a ti.' },
+        { emoji:'🌟', text:'Los mejores amigos son los que sin decir nada ya saben cómo te sientes. Los que con una llamada arreglan el día más difícil. Los que están aunque pasen meses sin verse. Eso eres tú para mí.' },
+      ]
+    },
+    {
+      id: 'condolencias', label: '🕊️ Condolencias', messages: [
+        { emoji:'🕊️', text:'En este momento de dolor, quiero que sepas que estoy pensando en ti y en tu familia. No hay palabras que puedan aliviar una pérdida así, pero sí puedo decirte que no estás solo/a y que cuenten conmigo para lo que necesiten.' },
+        { emoji:'🙏', text:'Lamento profundamente tu pérdida. Que encuentres consuelo en los hermosos recuerdos que dejó y en el amor de quienes te rodean. Estoy aquí para ti en este momento tan difícil.' },
+        { emoji:'💙', text:'No existen palabras suficientes para expresar cuánto lo siento. Solo quiero que sepas que te acompaño en este dolor y que estoy disponible para lo que necesites, cuando lo necesites.' },
+        { emoji:'🌿', text:'En momentos como este, las palabras se quedan cortas. Solo quiero enviarte mucho amor y decirte que pienso en ti. Que puedas encontrar paz y fuerza en el amor de quienes te rodean.' },
+      ]
+    },
+    {
+      id: 'gracias', label: '🙏 Gracias', messages: [
+        { emoji:'🙏', text:'Gracias de corazón por todo lo que hiciste. No solo por el gesto en sí, sino por el tiempo, el cariño y la dedicación que pusiste. Personas como tú hacen que el mundo sea un lugar mejor.' },
+        { emoji:'💛', text:'Quiero que sepas que lo que hiciste por mí significó muchísimo. No lo olvidaré. Gracias por estar, por ayudar y por hacerlo con tanta generosidad. Te lo agradezco de verdad.' },
+        { emoji:'✨', text:'Hay cosas que el dinero no puede pagar y tu ayuda es una de ellas. Gracias por tu tiempo, tu energía y tu buena voluntad. Me alegra mucho tenerte en mi vida.' },
+        { emoji:'🌟', text:'Gracias por ser tan especial. Por dar sin esperar nada a cambio. Por estar cuando se te necesita. Eres una de esas personas que dejan huella y me siento muy afortunado/a de conocerte.' },
+      ]
+    },
+    {
+      id: 'disculpa', label: '💔 Disculpas', messages: [
+        { emoji:'💔', text:'Quiero pedirte disculpas de corazón. Sé que lo que hice estuvo mal y me arrepiento genuinamente. No era mi intención hacerte daño y lamento mucho haberte lastimado. Espero que puedas perdonarme.' },
+        { emoji:'🙏', text:'Lo siento mucho. Me equivoqué y lo reconozco. Valoro demasiado lo que tenemos como para dejarlo ir por un error. Dame la oportunidad de demostrarte que puedo ser mejor.' },
+        { emoji:'💙', text:'Perdón por mis palabras, por mis acciones y por el daño que te causé. No tengo excusas. Solo tengo el deseo sincero de hacer las cosas bien y de recuperar tu confianza.' },
+        { emoji:'🌿', text:'A veces nos equivocamos con las personas que más queremos. Hoy quiero pedirte perdón con toda la sinceridad del mundo. Me importas demasiado y espero que podamos superar esto juntos.' },
+      ]
+    },
+  ];
+
+  let currentCat = 'amor';
+
+  function renderCats() {
+    const container = document.getElementById('cats');
+    container.innerHTML = '';
+    categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'cat-btn' + (cat.id === currentCat ? ' active' : '');
+      btn.textContent = cat.label;
+      btn.addEventListener('click', () => {
+        currentCat = cat.id;
+        renderCats();
+        renderMessages();
+        window.scrollTo({top: 200, behavior: 'smooth'});
+      });
+      container.appendChild(btn);
+    });
+  }
+
+  function renderMessages() {
+    const cat = categories.find(c => c.id === currentCat);
+    const grid = document.getElementById('messagesGrid');
+    grid.innerHTML = '';
+    cat.messages.forEach(msg => {
+      const card = document.createElement('div');
+      card.className = 'msg-card';
+      card.innerHTML = `
+        <div class="msg-header">
+          <span class="msg-emoji">${msg.emoji}</span>
+          <span class="msg-copy">Clic para copiar</span>
+        </div>
+        <div class="msg-text">${msg.text}</div>
+      `;
+      card.addEventListener('click', () => {
+        navigator.clipboard.writeText(msg.text).catch(() => {});
+        showToast('¡Mensaje copiado!');
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  renderCats();
+  renderMessages();
+
+  let t;
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg; el.classList.add('show');
+    clearTimeout(t); t = setTimeout(() => el.classList.remove('show'), 1800);
+  }
+</script>
+</body>
+</html>
