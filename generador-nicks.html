@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Generador de Nicks para Juegos | CopiarCaracteres</title>
+  <meta name="description" content="Genera nicks épicos para Free Fire, Fortnite, Minecraft, PUBG y más. Escribe tu nombre y obtén estilos como xX__N4M3__Xx, ꧁༒☬NAME☬༒꧂ y muchos más."/>
+  <meta name="keywords" content="generador de nicks para juegos, nicks free fire, nicks fortnite, nombres bonitos para juegos, nick gamer generator, nicks con simbolos"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://copiarcaracteres.com/generador-nicks.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0a0a0a; --surface:#111; --border:#222; --accent:#e8ff47; --text:#f0f0f0; --muted:#555; --btn-bg:#161616; --btn-hover:#1e1e1e; --btn-border:#2a2a2a; }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:48px 20px 60px; position:relative; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(232,255,71,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; z-index:0; }
+    .wrapper { position:relative; z-index:1; width:100%; max-width:720px; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; margin-bottom:32px; transition:color 0.15s; }
+    .back-link:hover { color:var(--accent); }
+    .back-link::before { content:'←'; font-size:14px; }
+    header { text-align:center; margin-bottom:40px; }
+    .logo { font-size:13px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; opacity:0; animation:fadeUp 0.5s ease forwards 0.1s; }
+    h1 { font-size:clamp(1.8rem,5vw,3rem); font-weight:800; letter-spacing:-0.02em; line-height:1.1; opacity:0; animation:fadeUp 0.5s ease forwards 0.2s; }
+    h1 span { color:var(--accent); }
+    .subtitle { font-size:14px; color:var(--muted); margin-top:10px; font-family:'JetBrains Mono',monospace; opacity:0; animation:fadeUp 0.5s ease forwards 0.3s; }
+
+    /* Input section */
+    .input-section { margin-bottom:32px; opacity:0; animation:fadeUp 0.5s ease forwards 0.4s; }
+    .section-label { font-size:11px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+    .input-row { display:flex; gap:10px; }
+    input[type=text] { flex:1; background:var(--surface); border:1px solid var(--border); color:var(--text); font-family:'JetBrains Mono',monospace; font-size:18px; padding:14px 18px; outline:none; border-radius:4px; transition:border-color 0.2s; }
+    input[type=text]:focus { border-color:var(--accent); }
+    input[type=text]::placeholder { color:var(--muted); }
+    .gen-btn { background:var(--accent); color:#000; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; padding:14px 24px; border:none; border-radius:4px; cursor:pointer; transition:background 0.15s,transform 0.1s; white-space:nowrap; }
+    .gen-btn:hover { background:#d4eb3a; }
+    .gen-btn:active { transform:scale(0.97); }
+
+    /* Results */
+    .results-section { opacity:0; animation:fadeUp 0.5s ease forwards 0.5s; }
+    .nick-grid { display:flex; flex-direction:column; gap:8px; }
+    .nick-card { background:var(--btn-bg); border:1px solid var(--btn-border); border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:14px 18px; cursor:pointer; transition:border-color 0.15s,background 0.15s,transform 0.1s; gap:12px; }
+    .nick-card:hover { border-color:var(--accent); background:var(--btn-hover); transform:translateX(4px); }
+    .nick-card:active { transform:translateX(0); }
+    .nick-text { font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:700; color:var(--text); word-break:break-all; }
+    .nick-label { font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
+    .copy-hint { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); font-family:'JetBrains Mono',monospace; flex-shrink:0; }
+    .nick-card:hover .copy-hint { color:var(--accent); }
+
+    .empty-state { text-align:center; padding:40px 20px; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:14px; }
+    .empty-icon { font-size:40px; margin-bottom:12px; }
+
+    .divider { width:100%; height:1px; background:var(--border); margin:28px 0; }
+    .toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--accent); color:#000; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:10px 22px; border-radius:100px; opacity:0; transition:transform 0.25s ease,opacity 0.25s ease; z-index:100; pointer-events:none; }
+    .toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+    footer { text-align:center; font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace; }
+    footer span { color:var(--accent); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    @media(max-width:480px) { .input-row{flex-direction:column;} .nick-text{font-size:14px;} }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <a href="index.html" class="back-link">Inicio</a>
+  <header>
+    <div class="logo">✦ CopiarCaracteres</div>
+    <h1>Generador de <span>Nicks</span></h1>
+    <p class="subtitle">// escribe tu nombre · obtén estilos épicos</p>
+  </header>
+
+  <div class="input-section">
+    <p class="section-label">Tu nombre</p>
+    <div class="input-row">
+      <input type="text" id="nameInput" placeholder="Ej: Oscar, Dragon, Killer..." maxlength="20"/>
+      <button class="gen-btn" onclick="generateNicks()">Generar ⚡</button>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <p class="section-label" id="resultsLabel" style="display:none">Elige tu nick — clic para copiar</p>
+    <div class="nick-grid" id="nickGrid">
+      <div class="empty-state">
+        <div class="empty-icon">🎮</div>
+        Escribe tu nombre y presiona Generar
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <footer><span>CopiarCaracteres</span> · <a href="index.html" style="color:var(--muted);text-decoration:none">Inicio</a> · <a href="privacidad.html" style="color:var(--muted);text-decoration:none">Privacidad</a></footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+  // Leetspeak map
+  const leet = { a:'4',e:'3',i:'1',o:'0',s:'5',t:'7',l:'1',b:'8',g:'9' };
+  function toLeet(str) {
+    return str.split('').map(c => leet[c.toLowerCase()] || c).join('');
+  }
+
+  // Fancy unicode letters — lookup tables
+  const boldMap   = {'A':'𝐀','B':'𝐁','C':'𝐂','D':'𝐃','E':'𝐄','F':'𝐅','G':'𝐆','H':'𝐇','I':'𝐈','J':'𝐉','K':'𝐊','L':'𝐋','M':'𝐌','N':'𝐍','O':'𝐎','P':'𝐏','Q':'𝐐','R':'𝐑','S':'𝐒','T':'𝐓','U':'𝐔','V':'𝐕','W':'𝐖','X':'𝐗','Y':'𝐘','Z':'𝐙','a':'𝐚','b':'𝐛','c':'𝐜','d':'𝐝','e':'𝐞','f':'𝐟','g':'𝐠','h':'𝐡','i':'𝐢','j':'𝐣','k':'𝐤','l':'𝐥','m':'𝐦','n':'𝐧','o':'𝐨','p':'𝐩','q':'𝐪','r':'𝐫','s':'𝐬','t':'𝐭','u':'𝐮','v':'𝐯','w':'𝐰','x':'𝐱','y':'𝐲','z':'𝐳'};
+  const scriptMap = {'A':'𝓐','B':'𝓑','C':'𝓒','D':'𝓓','E':'𝓔','F':'𝓕','G':'𝓖','H':'𝓗','I':'𝓘','J':'𝓙','K':'𝓚','L':'𝓛','M':'𝓜','N':'𝓝','O':'𝓞','P':'𝓟','Q':'𝓠','R':'𝓡','S':'𝓢','T':'𝓣','U':'𝓤','V':'𝓥','W':'𝓦','X':'𝓧','Y':'𝓨','Z':'𝓩','a':'𝓪','b':'𝓫','c':'𝓬','d':'𝓭','e':'𝓮','f':'𝓯','g':'𝓰','h':'𝓱','i':'𝓲','j':'𝓳','k':'𝓴','l':'𝓵','m':'𝓶','n':'𝓷','o':'𝓸','p':'𝓹','q':'𝓺','r':'𝓻','s':'𝓼','t':'𝓽','u':'𝓾','v':'𝓿','w':'𝔀','x':'𝔁','y':'𝔂','z':'𝔃'};
+
+  function toFancy(str, map) {
+    return str.split('').map(c => map[c] || c).join('');
+  }
+
+  function generateNicks() {
+    const raw = document.getElementById('nameInput').value.trim();
+    if (!raw) { showToast('Escribe tu nombre primero'); return; }
+
+    const name  = raw;
+    const upper = raw.toUpperCase();
+    const lower = raw.toLowerCase();
+    const leet1 = toLeet(raw);
+    const leet2 = toLeet(upper);
+
+    const nicks = [
+      { label: 'Clásico xX',         nick: `xX_${upper}_Xx` },
+      { label: 'Elite',               nick: `xX__${leet2}__Xx` },
+      { label: 'Fuego',               nick: `꧁🔥${upper}🔥꧂` },
+      { label: 'Corona',              nick: `꧁༒☬${upper}☬༒꧂` },
+      { label: 'Diamante',            nick: `◈${upper}◈` },
+      { label: 'Calavera',            nick: `☠${upper}☠` },
+      { label: 'Estrellas',           nick: `★彡${name}彡★` },
+      { label: 'Pro Gamer',           nick: `•${upper}• PRO` },
+      { label: 'Bold',                nick: toFancy(name, boldMap) },
+      { label: 'Script',              nick: toFancy(name, scriptMap) },
+      { label: 'Clan Style',          nick: `[${upper}]` },
+      { label: 'Demon',               nick: `ꀸ${upper}ꀸ` },
+      { label: 'Dark',                nick: `彡${leet2}彡` },
+      { label: 'Llamas',              nick: `『${upper}』` },
+      { label: 'Militar',             nick: `|${upper}|` },
+      { label: 'Sniper',              nick: `†${upper}†` },
+      { label: 'Cool dots',           nick: `·.·${name}·.·` },
+      { label: 'Free Fire Style',     nick: `꧁꧂${upper}꧁꧂` },
+      { label: 'Legendario',          nick: `⚡${upper}⚡` },
+      { label: 'Ultimate',            nick: `【${upper}】` },
+    ];
+
+    const grid = document.getElementById('nickGrid');
+    const label = document.getElementById('resultsLabel');
+    grid.innerHTML = '';
+    label.style.display = 'block';
+
+    nicks.forEach(({label: lbl, nick}) => {
+      const card = document.createElement('div');
+      card.className = 'nick-card';
+      card.innerHTML = `
+        <div>
+          <div class="nick-label">${lbl}</div>
+          <div class="nick-text">${nick}</div>
+        </div>
+        <span class="copy-hint">Copiar</span>
+      `;
+      card.addEventListener('click', () => {
+        navigator.clipboard.writeText(nick).catch(()=>{});
+        showToast('¡Nick copiado!');
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  // Generate on Enter key
+  document.getElementById('nameInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') generateNicks();
+  });
+
+  let t;
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg; el.classList.add('show');
+    clearTimeout(t); t = setTimeout(()=>el.classList.remove('show'),1800);
+  }
+</script>
+</body>
+</html>

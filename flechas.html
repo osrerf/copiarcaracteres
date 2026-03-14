@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flechas para Copiar y Pegar ↑↓←→ | CopiarCaracteres</title>
+  <meta name="description" content="Copia flechas unicode con un clic: →, ←, ↑, ↓, ⇒, ⇐, ↗, ↙ y muchas más. Gratis y sin instalar nada."/>
+  <meta name="keywords" content="flechas para copiar, flechas unicode, flecha derecha copiar, flechas teclado, simbolos flechas"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://copiarcaracteres.com/flechas.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0a0a0a; --surface:#111; --border:#222; --accent:#e8ff47; --text:#f0f0f0; --muted:#555; --btn-bg:#161616; --btn-hover:#1e1e1e; --btn-border:#2a2a2a; }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:48px 20px 60px; position:relative; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(232,255,71,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; z-index:0; }
+    .wrapper { position:relative; z-index:1; width:100%; max-width:720px; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; margin-bottom:32px; transition:color 0.15s; }
+    .back-link:hover { color:var(--accent); }
+    .back-link::before { content:'←'; font-size:14px; }
+    header { text-align:center; margin-bottom:40px; }
+    .logo { font-size:13px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; opacity:0; animation:fadeUp 0.5s ease forwards 0.1s; }
+    h1 { font-size:clamp(2rem,6vw,3.2rem); font-weight:800; letter-spacing:-0.02em; line-height:1.1; opacity:0; animation:fadeUp 0.5s ease forwards 0.2s; }
+    h1 span { color:var(--accent); }
+    .subtitle { font-size:14px; color:var(--muted); margin-top:10px; font-family:'JetBrains Mono',monospace; opacity:0; animation:fadeUp 0.5s ease forwards 0.3s; }
+    .section-label { font-size:11px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+    .chars-section { opacity:0; animation:fadeUp 0.5s ease forwards 0.4s; }
+    .char-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-bottom:20px; }
+    .char-grid.big { grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:10px; }
+    .char-btn { background:var(--btn-bg); border:1px solid var(--btn-border); color:var(--text); cursor:pointer; border-radius:4px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; position:relative; overflow:hidden; transition:border-color 0.15s,background 0.15s,transform 0.1s; user-select:none; padding:14px 8px 10px; }
+    .char-btn::after { content:''; position:absolute; inset:0; background:var(--accent); opacity:0; transition:opacity 0.2s; }
+    .char-btn:hover { border-color:var(--accent); background:var(--btn-hover); transform:translateY(-2px); }
+    .char-btn:active { transform:translateY(0); }
+    .char-btn.copied::after { opacity:0.08; }
+    .char-btn.big { padding:20px 10px 14px; }
+    .char-symbol { font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700; line-height:1; }
+    .char-btn.big .char-symbol { font-size:32px; }
+    .char-name { font-size:8px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
+    .divider { width:100%; height:1px; background:var(--border); margin:28px 0; }
+    .toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--accent); color:#000; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:10px 22px; border-radius:100px; opacity:0; transition:transform 0.25s ease,opacity 0.25s ease; z-index:100; pointer-events:none; }
+    .toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+    footer { text-align:center; font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace; letter-spacing:0.05em; }
+    footer span { color:var(--accent); }
+    .group-title { font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin:20px 0 8px; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <a href="index.html" class="back-link">Inicio</a>
+  <header>
+    <div class="logo">✦ CopiarCaracteres</div>
+    <h1>Flechas para <span>Copiar</span></h1>
+    <p class="subtitle">// haz clic para copiar al instante</p>
+  </header>
+
+  <div class="chars-section">
+
+    <p class="group-title">Flechas básicas</p>
+    <div class="char-grid big" id="basicRow"></div>
+
+    <p class="group-title">Flechas dobles</p>
+    <div class="char-grid" id="doubleRow"></div>
+
+    <p class="group-title">Flechas diagonales</p>
+    <div class="char-grid" id="diagRow"></div>
+
+    <p class="group-title">Flechas decorativas</p>
+    <div class="char-grid" id="decoRow"></div>
+
+  </div>
+
+  <div class="divider"></div>
+  <footer><span>CopiarCaracteres</span> · <a href="index.html" style="color:var(--muted);text-decoration:none">Inicio</a> · <a href="privacidad.html" style="color:var(--muted);text-decoration:none">Privacidad</a></footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+  const groups = {
+    basicRow:  [ ['→','Derecha'],['←','Izquierda'],['↑','Arriba'],['↓','Abajo'],['↔','Horizontal'] ],
+    doubleRow: [ ['⇒','Doble →'],['⇐','Doble ←'],['⇑','Doble ↑'],['⇓','Doble ↓'],['⇔','Doble ↔'],['⟹','Larga →'],['⟸','Larga ←'],['⟺','Larga ↔'],['⇄','Ciclo →'],['⇆','Ciclo ←'] ],
+    diagRow:   [ ['↗','Arriba →'],['↘','Abajo →'],['↙','Abajo ←'],['↖','Arriba ←'],['↕','Vertical'],['↰','Curva ↑'],['↱','Curva ↑→'],['↲','Curva ↓←'],['↳','Curva ↓→'],['↴','Enter'] ],
+    decoRow:   [ ['➜','Bold →'],['➔','Llena →'],['➤','Triángulo'],['➡','Emoji →'],['⬅','Emoji ←'],['⬆','Emoji ↑'],['⬇','Emoji ↓'],['🔄','Ciclo'],['↩','Volver'],['↪','Seguir'] ],
+  };
+
+  Object.entries(groups).forEach(([id, chars]) => {
+    const container = document.getElementById(id);
+    const isBig = id === 'basicRow';
+    chars.forEach(([sym, name]) => {
+      const btn = document.createElement('button');
+      btn.className = 'char-btn' + (isBig ? ' big' : '');
+      btn.innerHTML = `<span class="char-symbol">${sym}</span><span class="char-name">${name}</span>`;
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(sym).catch(()=>{});
+        btn.classList.add('copied');
+        setTimeout(()=>btn.classList.remove('copied'),300);
+        showToast(`"${sym}" copiado`);
+      });
+      container.appendChild(btn);
+    });
+  });
+
+  let t;
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg; el.classList.add('show');
+    clearTimeout(t); t = setTimeout(()=>el.classList.remove('show'),1800);
+  }
+</script>
+</body>
+</html>

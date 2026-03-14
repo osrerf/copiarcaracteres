@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letras para Bio de Instagram 𝓮𝓼𝓽𝓮 𝓮𝓼𝓽𝓲𝓵𝓸 | CopiarCaracteres</title>
+  <meta name="description" content="Genera letras bonitas para tu bio de Instagram: cursiva, negrita, gótica, burbuja y más. Escribe tu texto y cópialo con un clic. Gratis."/>
+  <meta name="keywords" content="letras para bio de instagram, letras bonitas instagram, fuentes para instagram, letras cursivas copiar, letras goticas copiar, texto fancy instagram, letras para perfil"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://copiarcaracteres.com/letras-bio-instagram.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0a0a0a; --surface:#111; --border:#222; --accent:#e8ff47; --text:#f0f0f0; --muted:#555; --btn-bg:#161616; --btn-hover:#1e1e1e; --btn-border:#2a2a2a; }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:48px 20px 60px; position:relative; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(232,255,71,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; z-index:0; }
+    .wrapper { position:relative; z-index:1; width:100%; max-width:720px; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; margin-bottom:32px; transition:color 0.15s; }
+    .back-link:hover { color:var(--accent); }
+    .back-link::before { content:'←'; font-size:14px; }
+    header { text-align:center; margin-bottom:40px; }
+    .logo { font-size:13px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; opacity:0; animation:fadeUp 0.5s ease forwards 0.1s; }
+    h1 { font-size:clamp(1.8rem,5vw,3rem); font-weight:800; letter-spacing:-0.02em; line-height:1.1; opacity:0; animation:fadeUp 0.5s ease forwards 0.2s; }
+    h1 span { color:var(--accent); }
+    .subtitle { font-size:14px; color:var(--muted); margin-top:10px; font-family:'JetBrains Mono',monospace; opacity:0; animation:fadeUp 0.5s ease forwards 0.3s; }
+
+    /* Input */
+    .input-section { margin-bottom:32px; opacity:0; animation:fadeUp 0.5s ease forwards 0.4s; }
+    .section-label { font-size:11px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+    .input-row { display:flex; gap:10px; }
+    input[type=text] { flex:1; background:var(--surface); border:1px solid var(--border); color:var(--text); font-family:'JetBrains Mono',monospace; font-size:17px; padding:14px 18px; outline:none; border-radius:4px; transition:border-color 0.2s; }
+    input[type=text]:focus { border-color:var(--accent); }
+    input[type=text]::placeholder { color:var(--muted); }
+    .gen-btn { background:var(--accent); color:#000; font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; padding:14px 24px; border:none; border-radius:4px; cursor:pointer; transition:background 0.15s,transform 0.1s; white-space:nowrap; }
+    .gen-btn:hover { background:#d4eb3a; }
+    .gen-btn:active { transform:scale(0.97); }
+
+    /* Results */
+    .results-section { opacity:0; animation:fadeUp 0.5s ease forwards 0.5s; }
+    .font-grid { display:flex; flex-direction:column; gap:8px; }
+    .font-card { background:var(--btn-bg); border:1px solid var(--btn-border); border-radius:4px; display:flex; align-items:center; justify-content:space-between; padding:16px 18px; cursor:pointer; transition:border-color 0.15s,background 0.15s,transform 0.1s; gap:12px; }
+    .font-card:hover { border-color:var(--accent); background:var(--btn-hover); transform:translateX(4px); }
+    .font-card:active { transform:translateX(0); }
+    .font-info { flex:1; min-width:0; }
+    .font-label { font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; font-family:'JetBrains Mono',monospace; }
+    .font-text { font-size:20px; color:var(--text); word-break:break-all; line-height:1.4; }
+    .copy-hint { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); font-family:'JetBrains Mono',monospace; flex-shrink:0; }
+    .font-card:hover .copy-hint { color:var(--accent); }
+
+    .empty-state { text-align:center; padding:40px 20px; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:14px; }
+    .empty-icon { font-size:40px; margin-bottom:12px; }
+
+    /* Tips section */
+    .tips { margin-top:32px; padding:20px; background:var(--surface); border:1px solid var(--border); border-radius:4px; }
+    .tips-title { font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:12px; }
+    .tips p { font-size:13px; color:var(--muted); line-height:1.7; font-family:'JetBrains Mono',monospace; }
+
+    .divider { width:100%; height:1px; background:var(--border); margin:28px 0; }
+    .toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--accent); color:#000; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:10px 22px; border-radius:100px; opacity:0; transition:transform 0.25s ease,opacity 0.25s ease; z-index:100; pointer-events:none; }
+    .toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+    footer { text-align:center; font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace; }
+    footer span { color:var(--accent); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    @media(max-width:480px) { .input-row{flex-direction:column;} .font-text{font-size:16px;} }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <a href="index.html" class="back-link">Inicio</a>
+  <header>
+    <div class="logo">✦ CopiarCaracteres</div>
+    <h1>Letras para <span>Bio de Instagram</span></h1>
+    <p class="subtitle">// escribe tu texto · elige tu estilo · copia</p>
+  </header>
+
+  <div class="input-section">
+    <p class="section-label">Tu texto</p>
+    <div class="input-row">
+      <input type="text" id="textInput" placeholder="Ej: Hola soy Oscar, Fotógrafo..." maxlength="40"/>
+      <button class="gen-btn" onclick="generateFonts()">Generar ✨</button>
+    </div>
+  </div>
+
+  <div class="results-section">
+    <p class="section-label" id="resultsLabel" style="display:none">Elige tu estilo — clic para copiar</p>
+    <div class="font-grid" id="fontGrid">
+      <div class="empty-state">
+        <div class="empty-icon">📸</div>
+        Escribe tu texto y presiona Generar
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <footer><span>CopiarCaracteres</span> · <a href="index.html" style="color:var(--muted);text-decoration:none">Inicio</a> · <a href="privacidad.html" style="color:var(--muted);text-decoration:none">Privacidad</a></footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+  // Unicode font maps — each covers A-Z a-z 0-9
+  const maps = {
+    bold: {
+      upper: '𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙',
+      lower: '𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳',
+      digits:'𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗'
+    },
+    italic: {
+      upper: '𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡',
+      lower: '𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻',
+      digits:'0123456789'
+    },
+    boldItalic: {
+      upper: '𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁',
+      lower: '𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛',
+      digits:'0123456789'
+    },
+    script: {
+      upper: '𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵',
+      lower: '𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏',
+      digits:'0123456789'
+    },
+    scriptBold: {
+      upper: '𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩',
+      lower: '𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃',
+      digits:'0123456789'
+    },
+    gothic: {
+      upper: '𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ',
+      lower: '𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷',
+      digits:'0123456789'
+    },
+    gothicBold: {
+      upper: '𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅',
+      lower: '𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟',
+      digits:'0123456789'
+    },
+    doubleStruck: {
+      upper: '𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ',
+      lower: '𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫',
+      digits:'𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡'
+    },
+    monospace: {
+      upper: '𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉',
+      lower: '𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣',
+      digits:'𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿'
+    },
+    sans: {
+      upper: '𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹',
+      lower: '𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓',
+      digits:'𝟢𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫'
+    },
+    sansBold: {
+      upper: '𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭',
+      lower: '𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇',
+      digits:'𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵'
+    },
+    sansItalic: {
+      upper: '𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡',
+      lower: '𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻',
+      digits:'0123456789'
+    },
+  };
+
+  // Bubble / circled letters
+  const bubbleUpper = 'ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ';
+  const bubbleLower = 'ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ';
+
+  // Fullwidth
+  const fwUpper = 'ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ';
+  const fwLower = 'ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ';
+
+  function convertMap(text, map) {
+    const upArr = [...map.upper];
+    const loArr = [...map.lower];
+    const dgArr = map.digits ? [...map.digits] : null;
+    return [...text].map(c => {
+      const u = c.toUpperCase();
+      const code = u.charCodeAt(0);
+      if (code >= 65 && code <= 90) {
+        const idx = code - 65;
+        if (c === c.toUpperCase() && c !== c.toLowerCase()) return upArr[idx] || c;
+        return loArr[idx] || c;
+      }
+      if (dgArr && c >= '0' && c <= '9') return [...dgArr][c.charCodeAt(0)-48] || c;
+      return c;
+    }).join('');
+  }
+
+  function convertSimple(text, upper, lower) {
+    const upArr = [...upper];
+    const loArr = [...lower];
+    return [...text].map(c => {
+      const code = c.charCodeAt(0);
+      if (code >= 65 && code <= 90) return upArr[code-65] || c;
+      if (code >= 97 && code <= 122) return loArr[code-97] || c;
+      return c;
+    }).join('');
+  }
+
+  // Decorative bio templates
+  function bioTemplates(text) {
+    const u = text.toUpperCase();
+    return [
+      { label: '✨ Cursiva elegante (𝓢𝓬𝓻𝓲𝓹𝓽)',    text: convertMap(text, maps.scriptBold) },
+      { label: '🖤 Gótica oscura',                   text: convertMap(text, maps.gothic) },
+      { label: '💎 Gótica negrita',                  text: convertMap(text, maps.gothicBold) },
+      { label: '🌟 Negrita sans',                    text: convertMap(text, maps.sansBold) },
+      { label: '📖 Cursiva script',                  text: convertMap(text, maps.script) },
+      { label: '🔵 Doble trazo',                     text: convertMap(text, maps.doubleStruck) },
+      { label: '⬛ Negrita serif',                   text: convertMap(text, maps.bold) },
+      { label: '🖊️ Itálica bold',                   text: convertMap(text, maps.boldItalic) },
+      { label: '💻 Monospace',                       text: convertMap(text, maps.monospace) },
+      { label: '⭕ Burbuja',                          text: convertSimple(text, bubbleUpper, bubbleLower) },
+      { label: '🅰️ Burbuja rellena',                 text: convertSimple(text, '🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩', 'ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ') },
+      { label: '🈶 Ancho completo',                  text: convertSimple(text, fwUpper, fwLower) },
+      { label: '✦ Decorada con estrellas',           text: `✦ ${convertMap(text, maps.scriptBold)} ✦` },
+      { label: '🌸 Estilo kawaii',                   text: `꒰ ${text} ꒱` },
+      { label: '👑 Estilo reina/rey',                text: `꧁👑 ${u} 👑꧂` },
+      { label: '🔥 Estilo fuego',                    text: `꧁🔥 ${convertMap(text, maps.bold)} 🔥꧂` },
+      { label: '🌙 Luna y estrellas',                text: `✨${convertMap(text, maps.script)}✨` },
+      { label: '💫 Entre flores',                    text: `✿ ${text} ✿` },
+      { label: '🎀 Lazo y corazones',                text: `🎀 ${convertMap(text, maps.scriptBold)} 🎀` },
+      { label: '⚡ Energía',                         text: `⚡${convertMap(text, maps.sansBold)}⚡` },
+      { label: '🖤 Minimalista oscura',              text: `· ${convertMap(text, maps.italic)} ·` },
+      { label: '💜 Con corazón',                     text: `${convertMap(text, maps.scriptBold)} 💜` },
+      { label: '🌺 Tropical',                        text: `🌺 ${text} 🌺` },
+      { label: '📷 Para fotógrafos',                 text: `[ ${convertMap(text, maps.monospace)} ]` },
+    ];
+  }
+
+  function generateFonts() {
+    const raw = document.getElementById('textInput').value.trim();
+    if (!raw) { showToast('Escribe tu texto primero'); return; }
+
+    const results = bioTemplates(raw);
+    const grid = document.getElementById('fontGrid');
+    const label = document.getElementById('resultsLabel');
+    grid.innerHTML = '';
+    label.style.display = 'block';
+
+    results.forEach(({label: lbl, text}) => {
+      const card = document.createElement('div');
+      card.className = 'font-card';
+      card.innerHTML = `
+        <div class="font-info">
+          <div class="font-label">${lbl}</div>
+          <div class="font-text">${text}</div>
+        </div>
+        <span class="copy-hint">Copiar</span>
+      `;
+      card.addEventListener('click', () => {
+        navigator.clipboard.writeText(text).catch(()=>{});
+        showToast('¡Texto copiado!');
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  document.getElementById('textInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') generateFonts();
+  });
+
+  let t;
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg; el.classList.add('show');
+    clearTimeout(t); t = setTimeout(()=>el.classList.remove('show'),1800);
+  }
+</script>
+</body>
+</html>
