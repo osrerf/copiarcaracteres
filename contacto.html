@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto | CopiarCaracteres</title>
+  <meta name="description" content="¿Tienes alguna sugerencia, reporte de error o consulta? Contáctanos a través de GitHub o correo electrónico."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://copiarcaracteres.com/contacto.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0a0a0a; --surface:#111; --border:#222; --accent:#e8ff47; --text:#f0f0f0; --muted:#555; --muted2:#888; --btn-bg:#161616; --btn-hover:#1e1e1e; --btn-border:#2a2a2a; }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:48px 20px 80px; position:relative; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(232,255,71,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; z-index:0; }
+    .wrapper { position:relative; z-index:1; width:100%; max-width:680px; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted2); text-decoration:none; margin-bottom:40px; transition:color 0.15s; }
+    .back-link:hover { color:var(--accent); }
+    .back-link::before { content:'←'; font-size:14px; }
+    header { margin-bottom:48px; }
+    .label { font-size:11px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+    h1 { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; letter-spacing:-0.02em; line-height:1.1; }
+    .subtitle { font-size:14px; color:var(--muted); margin-top:12px; font-family:'JetBrains Mono',monospace; }
+    .content { display:flex; flex-direction:column; gap:16px; }
+    .contact-card { background:var(--btn-bg); border:1px solid var(--btn-border); border-radius:4px; padding:20px 22px; display:flex; align-items:center; gap:16px; text-decoration:none; transition:border-color 0.15s,transform 0.1s,background 0.15s; }
+    .contact-card:hover { border-color:var(--accent); background:var(--btn-hover); transform:translateX(4px); }
+    .contact-icon { font-size:28px; flex-shrink:0; }
+    .contact-info { flex:1; }
+    .contact-label { font-size:10px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; font-family:'JetBrains Mono',monospace; }
+    .contact-value { font-size:15px; font-weight:700; color:var(--text); }
+    .contact-desc { font-size:12px; color:var(--muted); margin-top:4px; font-family:'JetBrains Mono',monospace; }
+    .contact-arrow { color:var(--accent); font-size:18px; flex-shrink:0; }
+
+    .info-box { background:var(--surface); border:1px solid var(--border); border-radius:4px; padding:18px 20px; margin-top:8px; }
+    .info-box p { font-size:13px; color:var(--muted); line-height:1.7; font-family:'JetBrains Mono',monospace; }
+    .info-box strong { color:var(--text); }
+
+    .divider { width:100%; height:1px; background:var(--border); margin:8px 0; }
+    footer { text-align:center; font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace; margin-top:60px; }
+    footer span { color:var(--accent); }
+    a.footer-link { color:var(--muted); text-decoration:none; }
+    a.footer-link:hover { color:var(--accent); }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <a href="/" class="back-link">Volver al inicio</a>
+  <header>
+    <div class="label">✦ Contáctanos</div>
+    <h1>Contacto</h1>
+    <p class="subtitle">// sugerencias · errores · consultas</p>
+  </header>
+
+  <div class="content">
+
+    <a href="mailto:contacto@copiarcaracteres.com" class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-info">
+        <div class="contact-label">Correo electrónico</div>
+        <div class="contact-value">contacto@copiarcaracteres.com</div>
+        <div class="contact-desc">Escríbenos para cualquier consulta o sugerencia</div>
+      </div>
+      <div class="contact-arrow">→</div>
+    </a>
+
+    <a href="https://github.com/osrerf/copiarcaracteres/issues" target="_blank" rel="noopener" class="contact-card">
+      <div class="contact-icon">🐙</div>
+      <div class="contact-info">
+        <div class="contact-label">GitHub Issues</div>
+        <div class="contact-value">github.com/osrerf/copiarcaracteres</div>
+        <div class="contact-desc">Reporta errores o sugiere nuevos caracteres</div>
+      </div>
+      <div class="contact-arrow">→</div>
+    </a>
+
+    <div class="info-box">
+      <p>⏱ <strong>Tiempo de respuesta:</strong> intentamos responder en un plazo de 24 a 72 horas hábiles.</p>
+    </div>
+
+    <div class="info-box">
+      <p>💡 <strong>¿Tienes sugerencias?</strong> Si quieres que agreguemos una categoría nueva de caracteres, un tipo de símbolo específico o cualquier mejora a la herramienta, abre un issue en GitHub y lo consideraremos para la próxima actualización.</p>
+    </div>
+
+    <div class="info-box">
+      <p>🐛 <strong>¿Encontraste un error?</strong> Si algún carácter no se copia correctamente o alguna página no carga bien, cuéntanos en qué dispositivo y navegador ocurrió y lo corregiremos lo antes posible.</p>
+    </div>
+
+  </div>
+
+  <div class="divider" style="margin-top:48px;"></div>
+  <footer>
+    <span>CopiarCaracteres</span> ·
+    <a href="/" class="footer-link">Inicio</a> ·
+    <a href="/acerca.html" class="footer-link">Acerca de</a> ·
+    <a href="/privacidad.html" class="footer-link">Privacidad</a>
+  </footer>
+</div>
+</body>
+</html>
