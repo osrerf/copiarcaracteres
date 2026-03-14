@@ -58,6 +58,58 @@
   </url>
 
   <url>
+    <loc>https://copiarcaracteres.com/monedas.html</loc>
+    <lastmod>2025-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://copiarcaracteres.com/estrellas.html</loc>
+    <lastmod>2025-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://copiarcaracteres.com/musica.html</loc>
+    <lastmod>2025-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://copiarcaracteres.com/griego.html</loc>
+    <lastmod>2025-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://copiarcaracteres.com/puntuacion.html</loc>
+    <lastmod>2025-03-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://copiarcaracteres.com/frase-del-dia.html</loc>
+    <lastmod>2025-03-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://copiarcaracteres.com/acerca.html</loc>
+    <lastmod>2025-03-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://copiarcaracteres.com/contacto.html</loc>
+    <lastmod>2025-03-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
     <loc>https://copiarcaracteres.com/privacidad.html</loc>
     <lastmod>2025-03-14</lastmod>
     <changefreq>yearly</changefreq>
