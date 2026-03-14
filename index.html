@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- SEO básico -->
+  <title>Copiar Caracteres Especiales Online | CopiarCaracteres</title>
+  <meta name="description" content="Copia caracteres especiales con un clic: arroba @, grado °, euro €, barra invertida \, ñ, acentos y más. Insértalos directamente en tu texto sin complicaciones."/>
+  <meta name="keywords" content="copiar caracteres especiales, arroba teclado, símbolo grado, barra invertida, copiar euro, eñe, vocales con acento, símbolos para copiar, caracteres unicode, caracteres especiales online"/>
+  <meta name="author" content="CopiarCaracteres"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://TU_USUARIO.github.io/copiarcaracteres/"/>
+
+  <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://TU_USUARIO.github.io/copiarcaracteres/"/>
+  <meta property="og:title" content="Copiar Caracteres Especiales Online"/>
+  <meta property="og:description" content="Copia @, °, €, \, ñ y 15 símbolos más con un solo clic. Herramienta gratis y sin instalación."/>
+  <meta property="og:locale" content="es_ES"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Copiar Caracteres Especiales Online"/>
+  <meta name="twitter:description" content="Copia @, °, €, \, ñ y más símbolos con un clic. Gratis y sin instalar nada."/>
+
+  <!-- Schema.org (Google Rich Results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CopiarCaracteres",
+    "url": "https://TU_USUARIO.github.io/copiarcaracteres/",
+    "description": "Herramienta online para copiar caracteres especiales con un clic: arroba, grado, euro, barra invertida, ñ, acentos y más.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "All",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "inLanguage": "es"
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --border: #222222;
+      --accent: #e8ff47;
+      --accent2: #ff4757;
+      --text: #f0f0f0;
+      --muted: #555;
+      --btn-bg: #161616;
+      --btn-hover: #1e1e1e;
+      --btn-border: #2a2a2a;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Syne', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 20px 60px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(232,255,71,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,255,71,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 720px;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.1s;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.2s;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.3s;
+    }
+
+    /* Text area section */
+    .textarea-section {
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.4s;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .textarea-wrapper {
+      position: relative;
+    }
+
+    textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      padding: 16px 18px;
+      resize: vertical;
+      min-height: 120px;
+      outline: none;
+      border-radius: 4px;
+      transition: border-color 0.2s;
+      line-height: 1.6;
+    }
+
+    textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .textarea-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      justify-content: flex-end;
+    }
+
+    .action-btn {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 3px;
+      transition: all 0.15s;
+    }
+
+    .action-btn:hover {
+      background: var(--btn-hover);
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    .action-btn.primary {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: 800;
+    }
+
+    .action-btn.primary:hover {
+      background: #d4eb3a;
+    }
+
+    /* Characters section */
+    .chars-section {
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.5s;
+    }
+
+    /* Row 1 — TOP 5 */
+    .row-top {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    /* Row 2 — next 15 */
+    .row-rest {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    /* Character button */
+    .char-btn {
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-border);
+      color: var(--text);
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.15s, background 0.15s, transform 0.1s;
+      user-select: none;
+    }
+
+    .char-btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .char-btn:hover {
+      border-color: var(--accent);
+      background: var(--btn-hover);
+      transform: translateY(-2px);
+    }
+
+    .char-btn:active {
+      transform: translateY(0);
+    }
+
+    .char-btn.copied::after {
+      opacity: 0.08;
+    }
+
+    /* TOP 5 — bigger */
+    .row-top .char-btn {
+      padding: 20px 10px 14px;
+    }
+
+    .row-top .char-symbol {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .row-top .char-name {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* REST — smaller */
+    .row-rest .char-btn {
+      padding: 14px 8px 10px;
+    }
+
+    .row-rest .char-symbol {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .row-rest .char-name {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--accent);
+      color: #000;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 100px;
+      opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards 0.7s;
+    }
+
+    footer span { color: var(--accent); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .row-top  { grid-template-columns: repeat(5, 1fr); gap: 6px; }
+      .row-rest { grid-template-columns: repeat(5, 1fr); gap: 5px; }
+      .row-top .char-symbol { font-size: 24px; }
+      .row-rest .char-symbol { font-size: 17px; }
+      .row-top .char-btn { padding: 14px 4px 10px; }
+      .row-rest .char-btn { padding: 10px 4px 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <header>
+    <div class="logo">✦ Herramienta de escritura</div>
+    <h1>Copiar<span>Caracteres</span></h1>
+    <p class="subtitle">// escribe · inserta · copia al instante</p>
+  </header>
+
+  <!-- Textarea -->
+  <div class="textarea-section">
+    <p class="section-label">Tu texto</p>
+    <div class="textarea-wrapper">
+      <textarea id="mainText" placeholder="Escribe aquí... los caracteres se insertan en la posición del cursor ↓"></textarea>
+    </div>
+    <div class="textarea-actions">
+      <button class="action-btn" onclick="clearText()">Limpiar</button>
+      <button class="action-btn primary" onclick="copyAll()">Copiar todo</button>
+    </div>
+  </div>
+
+  <!-- Characters -->
+  <div class="chars-section">
+    <p class="section-label">Caracteres especiales</p>
+
+    <!-- Row 1: Top 5 -->
+    <div class="row-top" id="topRow"></div>
+
+    <!-- Row 2: Next 15 -->
+    <div class="row-rest" id="restRow"></div>
+  </div>
+
+  <div class="divider"></div>
+
+  <footer>
+    Haz clic en un carácter para insertarlo · <span>CopiarCaracteres</span>
+    <br/><br/>
+    <a href="privacidad.html" style="color:var(--muted);text-decoration:none;font-size:11px;letter-spacing:0.05em;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">Política de Privacidad</a>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  const characters = [
+    // TOP 5 — los más buscados de todos
+    { symbol: '@',  name: 'Arroba' },
+    { symbol: '\\', name: 'Barra \\' },
+    { symbol: '°',  name: 'Grado' },
+    { symbol: '€',  name: 'Euro' },
+    { symbol: '©',  name: 'Copyright' },
+    // RESTO — 15 muy buscados
+    { symbol: 'ñ',  name: 'Eñe min.' },
+    { symbol: 'Ñ',  name: 'Eñe may.' },
+    { symbol: 'á',  name: 'á acento' },
+    { symbol: 'é',  name: 'é acento' },
+    { symbol: 'í',  name: 'í acento' },
+    { symbol: 'ó',  name: 'ó acento' },
+    { symbol: 'ú',  name: 'ú acento' },
+    { symbol: '¿',  name: '¿ Pregunta' },
+    { symbol: '¡',  name: '¡ Exclamación' },
+    { symbol: '®',  name: 'Registrado' },
+    { symbol: '™',  name: 'Marca TM' },
+    { symbol: '→',  name: 'Flecha →' },
+    { symbol: '✓',  name: 'Check ✓' },
+    { symbol: '•',  name: 'Bullet •' },
+    { symbol: '…',  name: 'Ellipsis' },
+  ];
+
+  const textarea = document.getElementById('mainText');
+
+  function buildButtons() {
+    const topRow  = document.getElementById('topRow');
+    const restRow = document.getElementById('restRow');
+
+    characters.forEach((c, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'char-btn';
+      btn.title = `Insertar ${c.name}`;
+      btn.innerHTML = `<span class="char-symbol">${c.symbol}</span><span class="char-name">${c.name}</span>`;
+      btn.addEventListener('click', () => insertChar(c.symbol, btn));
+      (i < 5 ? topRow : restRow).appendChild(btn);
+    });
+  }
+
+  function insertChar(char, btn) {
+    const start = textarea.selectionStart;
+    const end   = textarea.selectionEnd;
+    const val   = textarea.value;
+    textarea.value = val.slice(0, start) + char + val.slice(end);
+    const pos = start + char.length;
+    textarea.setSelectionRange(pos, pos);
+    textarea.focus();
+
+    // Copy to clipboard too
+    navigator.clipboard.writeText(char).catch(() => {});
+
+    // Button flash
+    btn.classList.add('copied');
+    setTimeout(() => btn.classList.remove('copied'), 300);
+
+    showToast(`"${char}" insertado y copiado`);
+  }
+
+  function copyAll() {
+    const text = textarea.value;
+    if (!text.trim()) { showToast('El campo está vacío'); return; }
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('¡Texto copiado!');
+    });
+  }
+
+  function clearText() {
+    textarea.value = '';
+    textarea.focus();
+    showToast('Campo limpiado');
+  }
+
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
+  }
+
+  buildButtons();
+</script>
+</body>
+</html>
