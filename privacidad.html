@@ -4,278 +4,109 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Política de Privacidad | CopiarCaracteres</title>
-  <meta name="description" content="Política de privacidad de CopiarCaracteres. Información sobre el uso de cookies, datos y publicidad de Google AdSense."/>
+  <meta name="description" content="Política de privacidad de CopiarCaracteres. Información sobre cookies, datos y publicidad."/>
   <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://copiarcaracteres.com/privacidad.html"/>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0a0a0a;
-      --surface: #111111;
-      --border: #222222;
-      --accent: #e8ff47;
-      --text: #f0f0f0;
-      --muted: #555;
-      --muted2: #888;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Syne', sans-serif;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 48px 20px 80px;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(232,255,71,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(232,255,71,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .wrapper {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 680px;
-    }
-
-    /* Nav back */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted2);
-      text-decoration: none;
-      margin-bottom: 40px;
-      transition: color 0.15s;
-    }
-    .back-link:hover { color: var(--accent); }
-    .back-link::before { content: '←'; font-size: 14px; }
-
-    /* Header */
-    header { margin-bottom: 48px; }
-
-    .label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-
-    .meta {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 12px;
-      color: var(--muted);
-      margin-top: 12px;
-    }
-
-    /* Content */
-    .content { display: flex; flex-direction: column; gap: 36px; }
-
-    .section {
-      border-left: 2px solid var(--border);
-      padding-left: 20px;
-      transition: border-color 0.2s;
-    }
-
-    .section:hover { border-color: var(--accent); }
-
-    h2 {
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    p {
-      font-size: 15px;
-      line-height: 1.75;
-      color: #bbb;
-      margin-bottom: 10px;
-    }
-
-    p:last-child { margin-bottom: 0; }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    ul li {
-      font-size: 15px;
-      line-height: 1.6;
-      color: #bbb;
-      padding-left: 16px;
-      position: relative;
-    }
-
-    ul li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 11px;
-      top: 3px;
-    }
-
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      margin: 8px 0;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 11px;
-      color: var(--muted);
-      font-family: 'JetBrains Mono', monospace;
-      margin-top: 60px;
-    }
-
-    footer span { color: var(--accent); }
+    :root { --bg:#0a0a0a; --surface:#111; --border:#222; --accent:#e8ff47; --text:#f0f0f0; --muted:#777; }
+    body.light { --bg:#f5f5f0; --surface:#fff; --border:#ddd; --accent:#4a8000; --text:#111; --muted:#555; }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; padding:48px 20px 80px; display:flex; flex-direction:column; align-items:center; transition:background 0.2s,color 0.2s; }
+    .wrapper { width:100%; max-width:660px; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; margin-bottom:40px; transition:color 0.15s; }
+    .back-link:hover { color:var(--accent); }
+    .back-link::before { content:'←'; margin-right:4px; }
+    .tag { font-size:11px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+    h1 { font-size:clamp(1.8rem,5vw,2.6rem); font-weight:800; margin-bottom:8px; color:var(--text); }
+    .meta { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); margin-bottom:48px; }
+    .section { border-left:2px solid var(--border); padding-left:20px; margin-bottom:32px; transition:border-color 0.2s; }
+    .section:hover { border-color:var(--accent); }
+    h2 { font-size:12px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+    p { font-size:15px; line-height:1.8; color:var(--text); opacity:0.85; margin-bottom:8px; }
+    p:last-child { margin-bottom:0; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    ul { list-style:none; margin-top:6px; display:flex; flex-direction:column; gap:6px; }
+    ul li { font-size:15px; line-height:1.6; color:var(--text); opacity:0.85; padding-left:16px; position:relative; }
+    ul li::before { content:'▸'; position:absolute; left:0; color:var(--accent); font-size:11px; top:3px; }
+    .divider { width:100%; height:1px; background:var(--border); margin:40px 0 20px; }
+    footer { font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); text-align:center; }
+    footer span { color:var(--accent); }
+    .theme-toggle { position:fixed; top:16px; right:16px; z-index:999; background:var(--surface); border:1px solid var(--border); color:var(--text); width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; transition:all 0.2s; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
+    .theme-toggle:hover { border-color:var(--accent); transform:scale(1.1); }
   </style>
 </head>
 <body>
-
 <div class="wrapper">
-
   <a href="/" class="back-link">Volver al inicio</a>
+  <div class="tag">✦ Legal</div>
+  <h1>Política de Privacidad</h1>
+  <p class="meta">// Última actualización: marzo 2025</p>
 
-  <header>
-    <div class="label">✦ Legal</div>
-    <h1>Política de Privacidad</h1>
-    <p class="meta">// Última actualización: enero 2025</p>
-  </header>
-
-  <div class="content">
-
-    <div class="section">
-      <h2>1. Quiénes somos</h2>
-      <p>
-        <strong>CopiarCaracteres</strong> es una herramienta web gratuita que permite a los usuarios copiar e insertar caracteres especiales. El sitio está disponible en
-        <a href="/">copiarcaracteres</a> y no requiere registro ni instalación.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>2. Datos que recopilamos</h2>
-      <p>Este sitio web <strong>no recopila datos personales</strong> de forma directa. No existe ningún formulario de registro, inicio de sesión ni sistema que almacene información identificable del usuario.</p>
-      <p>Sin embargo, como todo sitio web, se registran datos técnicos de forma automática a través de los servicios que utilizamos:</p>
-      <ul>
-        <li>Dirección IP (anonimizada por Google Analytics si está activo)</li>
-        <li>Tipo de navegador y sistema operativo</li>
-        <li>Páginas visitadas y tiempo de permanencia</li>
-        <li>País o región de acceso (de forma agregada)</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>3. Cookies</h2>
-      <p>Este sitio puede utilizar cookies de terceros con los siguientes fines:</p>
-      <ul>
-        <li><strong>Google AdSense:</strong> para mostrar anuncios personalizados según tus intereses y comportamiento de navegación.</li>
-        <li><strong>Google Analytics:</strong> para analizar el tráfico del sitio de forma anónima y mejorar la experiencia de usuario.</li>
-      </ul>
-      <p>Puedes gestionar o desactivar las cookies desde la configuración de tu navegador. Ten en cuenta que algunas funciones del sitio pueden verse afectadas.</p>
-    </div>
-
-    <div class="section">
-      <h2>4. Publicidad — Google AdSense</h2>
-      <p>
-        Este sitio utiliza <strong>Google AdSense</strong>, un servicio de publicidad de Google LLC. AdSense puede usar cookies y tecnologías similares para mostrar anuncios relevantes basados en tus visitas a este y otros sitios web.
-      </p>
-      <p>
-        Google puede utilizar el identificador publicitario de tu dispositivo para personalizar los anuncios. Puedes optar por no recibir anuncios personalizados visitando:
-        <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>
-      </p>
-      <p>
-        Para más información sobre cómo Google utiliza los datos, visita:
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>5. Derechos del usuario</h2>
-      <p>De acuerdo con la normativa aplicable (RGPD en Europa, LOPD en España y leyes equivalentes en Latinoamérica), tienes derecho a:</p>
-      <ul>
-        <li>Acceder a los datos que se hayan podido recopilar sobre ti</li>
-        <li>Solicitar su rectificación o eliminación</li>
-        <li>Oponerte al tratamiento de tus datos con fines publicitarios</li>
-        <li>Presentar una reclamación ante la autoridad de protección de datos de tu país</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>6. Servicios de terceros</h2>
-      <p>Este sitio puede cargar recursos externos que tienen sus propias políticas de privacidad:</p>
-      <ul>
-        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google AdSense / Analytics</a></li>
-        <li><a href="https://fonts.google.com" target="_blank" rel="noopener">Google Fonts</a></li>
-        <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Pages (alojamiento)</a></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>7. Cambios en esta política</h2>
-      <p>
-        Nos reservamos el derecho de actualizar esta política de privacidad en cualquier momento. Los cambios serán publicados en esta misma página con la fecha de última actualización. Te recomendamos revisarla periódicamente.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>8. Contacto</h2>
-      <p>
-        Si tienes preguntas sobre esta política de privacidad, puedes contactarnos en
-        <a href="mailto:contacto@copiarcaracteres.com">contacto@copiarcaracteres.com</a> o a través de GitHub:
-        <a href="https://github.com/osrerf/copiarcaracteres" target="_blank" rel="noopener">github.com/osrerf/copiarcaracteres</a>
-      </p>
-    </div>
-
+  <div class="section">
+    <h2>1. Quiénes somos</h2>
+    <p>CopiarCaracteres es una herramienta web gratuita para copiar caracteres especiales, símbolos y emojis. Disponible en <a href="/">copiarcaracteres.com</a>. No requiere registro ni instalación.</p>
   </div>
 
-  <div class="divider" style="margin-top:48px;"></div>
+  <div class="section">
+    <h2>2. Datos que recopilamos</h2>
+    <p>Este sitio no recopila datos personales directamente. De forma automática se pueden registrar:</p>
+    <ul>
+      <li>Dirección IP (anonimizada)</li>
+      <li>Tipo de navegador y sistema operativo</li>
+      <li>Páginas visitadas y tiempo de permanencia</li>
+      <li>País o región de acceso</li>
+    </ul>
+  </div>
 
+  <div class="section">
+    <h2>3. Cookies</h2>
+    <p>Este sitio puede usar cookies de terceros para:</p>
+    <ul>
+      <li><strong>Google AdSense:</strong> mostrar anuncios personalizados</li>
+      <li><strong>Google Analytics:</strong> analizar el tráfico de forma anónima</li>
+    </ul>
+    <p>Puedes desactivar las cookies desde la configuración de tu navegador.</p>
+  </div>
+
+  <div class="section">
+    <h2>4. Google AdSense</h2>
+    <p>Este sitio utiliza Google AdSense para mostrar publicidad. Puedes gestionar tus preferencias en <a href="https://adssettings.google.com" target="_blank" rel="noopener">adssettings.google.com</a>.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Tus derechos</h2>
+    <ul>
+      <li>Acceder a los datos recopilados sobre ti</li>
+      <li>Solicitar su rectificación o eliminación</li>
+      <li>Oponerte al tratamiento con fines publicitarios</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>6. Contacto</h2>
+    <p>Para cualquier consulta escríbenos a <a href="mailto:contacto@copiarcaracteres.com">contacto@copiarcaracteres.com</a></p>
+  </div>
+
+  <div class="divider"></div>
   <footer>
-    <span>CopiarCaracteres</span> · Política de Privacidad · Todos los derechos reservados
+    <span>CopiarCaracteres</span> ·
+    <a href="/" style="color:var(--muted)">Inicio</a> ·
+    <a href="/contacto.html" style="color:var(--muted)">Contacto</a>
   </footer>
-
 </div>
+
+<button class="theme-toggle" id="themeBtn" title="Cambiar tema">☀️</button>
+<script>
+  const btn = document.getElementById('themeBtn');
+  const saved = localStorage.getItem('theme') || 'dark';
+  if (saved === 'light') { document.body.classList.add('light'); btn.textContent = '🌙'; }
+  btn.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    btn.textContent = isLight ? '🌙' : '☀️';
+  });
+</script>
 </body>
 </html>

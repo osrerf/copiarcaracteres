@@ -39,6 +39,70 @@
     footer span { color:var(--accent); }
     .group-title { font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin:20px 0 8px; }
     @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+  
+    /* ===== LIGHT THEME ===== */
+    body.light {
+      --bg: #f5f5f0;
+      --surface: #ffffff;
+      --border: #d0d0d0;
+      --accent: #4a8000;
+      --text: #111111;
+      --muted: #555;
+      --btn-bg: #ffffff;
+      --btn-hover: #efefef;
+      --btn-border: #ccc;
+    }
+    body.light .msg-text,
+    body.light .estilo-text,
+    body.light .font-text,
+    body.light .nick-text,
+    body.light .char-symbol,
+    body.light .frase-texto-fancy,
+    body.light p,
+    body.light .frase-autor,
+    body.light .char-name,
+    body.light .estilo-label,
+    body.light .nick-label,
+    body.light .font-label {
+      color: #111111 !important;
+    }
+    body.light .section-label,
+    body.light .group-title,
+    body.light .subtitle,
+    body.light .copy-hint,
+    body.light .msg-copy {
+      color: #444444 !important;
+    }
+    body.light::before {
+      background-image:
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 999;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -93,6 +157,22 @@
     el.textContent = msg; el.classList.add('show');
     clearTimeout(t); t = setTimeout(()=>el.classList.remove('show'),1800);
   }
+
+  // Theme toggle
+  (function() {
+    const saved = localStorage.getItem('theme') || 'dark';
+    if (saved === 'light') document.body.classList.add('light');
+    const btn = document.createElement('button');
+    btn.className = 'theme-toggle';
+    btn.title = 'Cambiar tema';
+    btn.textContent = saved === 'light' ? '🌙' : '☀️';
+    btn.addEventListener('click', () => {
+      const isLight = document.body.classList.toggle('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      btn.textContent = isLight ? '🌙' : '☀️';
+    });
+    document.body.appendChild(btn);
+  })();
 </script>
 </body>
 </html>
