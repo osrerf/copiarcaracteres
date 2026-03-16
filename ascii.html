@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5V37GTNR');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arte ASCII para Copiar ╔═╗ | CopiarCaracteres</title>
+  <meta name="description" content="Copia arte ASCII con un clic: bordes, caras, animales, objetos y más. También genera tu propio texto en ASCII art. Gratis y sin instalar nada."/>
+  <meta name="keywords" content="arte ascii copiar, ascii art copiar, bordes ascii, caras ascii copiar, texto ascii, simbolos ascii, dibujos ascii copiar pegar"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://copiarcaracteres.com/ascii.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0a;--surface:#111;--border:#222;--accent:#e8ff47;--text:#f0f0f0;--muted:#555;--btn-bg:#161616;--btn-hover:#1e1e1e;--btn-border:#2a2a2a}
+    body.light{--bg:#f5f5f0;--surface:#fff;--border:#ddd;--accent:#4a8000;--text:#111;--muted:#555;--btn-bg:#fff;--btn-hover:#f0f0f0;--btn-border:#ccc}
+    body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 20px 60px;position:relative;overflow-x:hidden;transition:background 0.2s,color 0.2s}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(232,255,71,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+    body.light::before{background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px)}
+    .wrapper{position:relative;z-index:1;width:100%;max-width:720px}
+    .back-link{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:32px;transition:color 0.15s}
+    .back-link:hover{color:var(--accent)}
+    .back-link::before{content:'←';font-size:14px}
+    header{text-align:center;margin-bottom:36px}
+    .logo{font-size:13px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;opacity:0;animation:fadeUp 0.5s ease forwards 0.1s}
+    h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;opacity:0;animation:fadeUp 0.5s ease forwards 0.2s}
+    h1 span{color:var(--accent)}
+    .subtitle{font-size:14px;color:var(--muted);margin-top:10px;font-family:'JetBrains Mono',monospace;opacity:0;animation:fadeUp 0.5s ease forwards 0.3s}
+    .chars-section{opacity:0;animation:fadeUp 0.5s ease forwards 0.4s}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin:20px 0 10px}
+    .ascii-card{background:var(--btn-bg);border:1px solid var(--btn-border);border-radius:4px;padding:16px 18px;cursor:pointer;transition:border-color 0.15s,background 0.15s,transform 0.1s;margin-bottom:8px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+    .ascii-card:hover{border-color:var(--accent);background:var(--btn-hover);transform:translateX(4px)}
+    .ascii-label{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .ascii-art{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--text);line-height:1.5;white-space:pre;overflow-x:auto}
+    .copy-hint{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);font-family:'JetBrains Mono',monospace;flex-shrink:0;margin-top:2px}
+    .ascii-card:hover .copy-hint{color:var(--accent)}
+    .divider{width:100%;height:1px;background:var(--border);margin:28px 0}
+    .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--accent);color:#000;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:10px 22px;border-radius:100px;opacity:0;transition:transform 0.25s ease,opacity 0.25s ease;z-index:100;pointer-events:none}
+    .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+    footer{text-align:center;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+    footer span{color:var(--accent)}
+    .theme-toggle{position:fixed;top:16px;right:16px;z-index:999;background:var(--surface);border:1px solid var(--border);color:var(--text);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+    .theme-toggle:hover{border-color:var(--accent);transform:scale(1.1)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V37GTNR"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<div class="wrapper">
+  <a href="/" class="back-link">Inicio</a>
+  <header>
+    <div class="logo">✦ CopiarCaracteres</div>
+    <h1>Arte <span>ASCII</span></h1>
+    <p class="subtitle">// haz clic para copiar al instante</p>
+  </header>
+
+  <div class="chars-section" id="asciiContainer"></div>
+
+  <div class="divider"></div>
+  <footer><span>CopiarCaracteres</span> · <a href="/" style="color:var(--muted);text-decoration:none">Inicio</a> · <a href="/privacidad.html" style="color:var(--muted);text-decoration:none">Privacidad</a></footer>
+</div>
+<div class="toast" id="toast"></div>
+<button class="theme-toggle" id="themeBtn" title="Cambiar tema">☀️</button>
+
+<script>
+  const groups = [
+    { title: 'Bordes y cajas', items: [
+      { label: 'Caja doble', art: `╔══════════════╗\n║   TU TEXTO   ║\n╚══════════════╝` },
+      { label: 'Caja simple', art: `┌──────────────┐\n│   tu texto   │\n└──────────────┘` },
+      { label: 'Caja redondeada', art: `╭──────────────╮\n│   tu texto   │\n╰──────────────╯` },
+      { label: 'Caja gruesa', art: `▛▀▀▀▀▀▀▀▀▀▀▀▀▀▀▜\n▌   tu texto   ▐\n▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟` },
+    ]},
+    { title: 'Caras y emoticonos', items: [
+      { label: 'Feliz', art: `( ͡° ͜ʖ ͡°)` },
+      { label: 'Shrug', art: `¯\\_(ツ)_/¯` },
+      { label: 'Tableflip', art: `(╯°□°）╯︵ ┻━┻` },
+      { label: 'Poner mesa', art: `┬─┬ノ( º _ ºノ)` },
+      { label: 'Cara kawaii', art: `(づ｡◕‿‿◕｡)づ` },
+      { label: 'Cara enojada', art: `(ಠ_ಠ)` },
+      { label: 'Bailando', art: `ᕕ( ᐛ )ᕗ` },
+      { label: 'Konosuba', art: `(╹◡╹)` },
+    ]},
+    { title: 'Animales', items: [
+      { label: 'Gato', art: `=^.^=` },
+      { label: 'Oso', art: `ʕ•ᴥ•ʔ` },
+      { label: 'Conejo', art: `(\\_/)\n( •_•)\n/ > 🥕` },
+      { label: 'Pulpo', art: `   ___\n  (o o)\n /|^^^|\\\n  |   |\n  |___|` },
+    ]},
+    { title: 'Separadores', items: [
+      { label: 'Línea simple', art: `━━━━━━━━━━━━━━━━━━━━━━━━━━` },
+      { label: 'Línea doble', art: `══════════════════════════` },
+      { label: 'Línea decorada', art: `·.·.·.·.·.·.·.·.·.·.·.·.·` },
+      { label: 'Estrellas', art: `✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦` },
+      { label: 'Diamantes', art: `◇ ◇ ◇ ◇ ◇ ◇ ◇ ◇ ◇ ◇ ◇ ◇` },
+      { label: 'Corazones', art: `♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥ ♥` },
+    ]},
+    { title: 'Objetos', items: [
+      { label: 'Corazón ASCII', art: `  ♥♥   ♥♥\n♥    ♥    ♥\n♥         ♥\n  ♥     ♥\n    ♥ ♥\n      ♥` },
+      { label: 'Estrella ASCII', art: `    *\n   ***\n  *****\n *******\n*********\n *******\n  *****\n   ***\n    *` },
+      { label: 'Casa', art: `    /\\\n   /  \\\n  / /\\ \\\n /______\\\n |  ||  |\n |  ||  |` },
+      { label: 'Cohete', art: `   |\n  /|\\\n / | \\\n|  |  |\n|  *  |\n \\   /\n  \\_/\n  | |\n  |_|` },
+    ]},
+  ];
+
+  const container = document.getElementById('asciiContainer');
+  groups.forEach(g => {
+    const label = document.createElement('p');
+    label.className = 'section-label';
+    label.textContent = g.title;
+    container.appendChild(label);
+
+    g.items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'ascii-card';
+      card.innerHTML = `
+        <div style="flex:1;min-width:0">
+          <div class="ascii-label">${item.label}</div>
+          <div class="ascii-art">${item.art}</div>
+        </div>
+        <span class="copy-hint">Copiar</span>
+      `;
+      card.addEventListener('click', () => {
+        navigator.clipboard.writeText(item.art).catch(()=>{});
+        showToast('¡Copiado!');
+      });
+      container.appendChild(card);
+    });
+  });
+
+  let t;
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg; el.classList.add('show');
+    clearTimeout(t); t = setTimeout(()=>el.classList.remove('show'),1800);
+  }
+
+  const btn = document.getElementById('themeBtn');
+  const saved = localStorage.getItem('theme') || 'dark';
+  if (saved === 'light') { document.body.classList.add('light'); btn.textContent = '🌙'; }
+  btn.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    btn.textContent = isLight ? '🌙' : '☀️';
+  });
+</script>
+</body>
+</html>
