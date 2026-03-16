@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Desafío del Símbolo 🎯 ¿Puedes escribirlo? | CopiarCaracteres</title>
+  <meta name="description" content="El desafío diario del símbolo. Un símbolo diferente cada día. ¿Puedes escribirlo en tu teclado sin ayuda? Juega y comparte tu resultado."/>
+  <meta name="keywords" content="desafio simbolo teclado, juego caracteres especiales, reto simbolo dia, juego teclado simbolos, wordle simbolos"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://copiarcaracteres.com/desafio.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZB0VDKV0CP"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZB0VDKV0CP');</script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5V37GTNR');</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#0a0a0a; --surface:#111; --border:#222; --accent:#e8ff47; --text:#f0f0f0; --muted:#555; --btn-bg:#161616; --btn-hover:#1e1e1e; --btn-border:#2a2a2a; --green:#22c55e; --red:#ef4444; }
+    body.light { --bg:#f5f5f0; --surface:#fff; --border:#ddd; --accent:#4a8000; --text:#111; --muted:#555; --btn-bg:#fff; --btn-hover:#f0f0f0; --btn-border:#ccc; }
+    body { background:var(--bg); color:var(--text); font-family:'Syne',sans-serif; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:48px 20px 60px; position:relative; overflow-x:hidden; transition:background 0.2s,color 0.2s; }
+    body::before { content:''; position:fixed; inset:0; background-image:linear-gradient(rgba(232,255,71,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,0.03) 1px,transparent 1px); background-size:40px 40px; pointer-events:none; z-index:0; }
+    body.light::before { background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px); }
+    .wrapper { position:relative; z-index:1; width:100%; max-width:520px; }
+    .back-link { display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; margin-bottom:32px; transition:color 0.15s; }
+    .back-link:hover { color:var(--accent); }
+    .back-link::before { content:'←'; font-size:14px; }
+    header { text-align:center; margin-bottom:28px; }
+    .logo { font-size:13px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; opacity:0; animation:fadeUp 0.5s ease forwards 0.1s; }
+    h1 { font-size:clamp(1.8rem,5vw,2.8rem); font-weight:800; letter-spacing:-0.02em; line-height:1.1; opacity:0; animation:fadeUp 0.5s ease forwards 0.2s; }
+    h1 span { color:var(--accent); }
+    .subtitle { font-size:14px; color:var(--muted); margin-top:10px; font-family:'JetBrains Mono',monospace; opacity:0; animation:fadeUp 0.5s ease forwards 0.3s; }
+
+    /* Meta row */
+    .meta-row { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:32px; opacity:0; animation:fadeUp 0.5s ease forwards 0.35s; }
+    .date-badge { background:var(--surface); border:1px solid var(--border); border-radius:100px; padding:6px 14px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:var(--muted); }
+    .streak-badge { background:var(--surface); border:1px solid var(--accent); border-radius:100px; padding:6px 14px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; color:var(--accent); }
+
+    /* Main card */
+    .card { background:var(--surface); border:2px solid var(--border); border-radius:10px; padding:40px 28px 32px; text-align:center; opacity:0; animation:fadeUp 0.5s ease forwards 0.4s; transition:border-color 0.3s; }
+    .card.success { border-color:var(--green); }
+    .card.fail { border-color:var(--red); }
+
+    .card-label { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin-bottom:20px; }
+    .symbol-big { font-size:96px; line-height:1; display:block; margin-bottom:6px; }
+    .symbol-name { font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--muted); margin-bottom:32px; }
+
+    /* Hidden input */
+    .input-wrap { position:relative; margin-bottom:10px; }
+    .hidden-input { width:100%; background:var(--btn-bg); border:2px solid var(--btn-border); border-radius:4px; padding:16px 18px; font-family:'JetBrains Mono',monospace; font-size:28px; outline:none; transition:border-color 0.2s; color:var(--accent); caret-color:var(--accent); letter-spacing:0.5em; text-align:center; }
+    .hidden-input:focus { border-color:var(--accent); }
+    .hidden-input::placeholder { color:var(--muted); font-size:14px; letter-spacing:0.05em; text-align:left; }
+    .hidden-input:disabled { opacity:0.5; cursor:not-allowed; }
+    .input-dots { position:absolute; right:16px; top:50%; transform:translateY(-50%); font-family:'JetBrains Mono',monospace; font-size:20px; color:var(--accent); pointer-events:none; letter-spacing:4px; }
+
+    .validate-btn { width:100%; background:var(--accent); color:#000; font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; padding:16px; border:none; border-radius:4px; cursor:pointer; transition:background 0.15s,transform 0.1s; margin-bottom:8px; }
+    .validate-btn:hover { background:#d4eb3a; }
+    .validate-btn:active { transform:scale(0.98); }
+    .validate-btn:disabled { opacity:0.4; cursor:not-allowed; }
+
+    /* Result */
+    .result { border-radius:6px; padding:18px; margin-top:16px; display:none; }
+    .result.success { background:#22c55e18; border:1px solid var(--green); }
+    .result.fail { background:#ef444418; border:1px solid var(--red); }
+    .result-icon { font-size:36px; margin-bottom:8px; }
+    .result-title { font-size:17px; font-weight:800; margin-bottom:4px; color:var(--text); }
+    .result-sub { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); }
+
+    /* Share & copy buttons */
+    .btn-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:16px; display:none; }
+    .sec-btn { font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:12px; border-radius:4px; cursor:pointer; transition:all 0.15s; border:1px solid var(--btn-border); background:var(--btn-bg); color:var(--muted); }
+    .sec-btn:hover { border-color:var(--accent); color:var(--text); }
+    .sec-btn.primary { background:var(--accent); color:#000; border-color:var(--accent); }
+    .sec-btn.primary:hover { background:#d4eb3a; }
+
+    /* Already played */
+    .played { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:36px 28px; text-align:center; display:none; opacity:0; animation:fadeUp 0.5s ease forwards 0.4s; }
+    .played-icon { font-size:56px; margin-bottom:14px; }
+    .played-title { font-size:20px; font-weight:800; margin-bottom:8px; }
+    .played-sub { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); line-height:1.7; }
+    .played-symbol { font-size:48px; margin:16px 0 8px; }
+    .played-btn-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:20px; }
+
+    /* Stats */
+    .stats { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:24px; opacity:0; animation:fadeUp 0.5s ease forwards 0.5s; }
+    .stat { background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:14px 10px; text-align:center; }
+    .stat-n { font-family:'JetBrains Mono',monospace; font-size:24px; font-weight:700; color:var(--accent); }
+    .stat-l { font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+
+    .divider { width:100%; height:1px; background:var(--border); margin:28px 0; }
+    .toast { position:fixed; bottom:28px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--accent); color:#000; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:10px 22px; border-radius:100px; opacity:0; transition:transform 0.25s ease,opacity 0.25s ease; z-index:100; pointer-events:none; }
+    .toast.show { transform:translateX(-50%) translateY(0); opacity:1; }
+    footer { text-align:center; font-size:11px; color:var(--muted); font-family:'JetBrains Mono',monospace; }
+    footer span { color:var(--accent); }
+    .theme-toggle { position:fixed; top:16px; right:16px; z-index:999; background:var(--surface); border:1px solid var(--border); color:var(--text); width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:18px; display:flex; align-items:center; justify-content:center; transition:all 0.2s; box-shadow:0 2px 8px rgba(0,0,0,0.2); }
+    .theme-toggle:hover { border-color:var(--accent); transform:scale(1.1); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-10px)} 75%{transform:translateX(10px)} }
+    @keyframes pop { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
+    .shake { animation:shake 0.4s ease; }
+    .pop { animation:pop 0.4s ease; }
+    @media(max-width:480px){ .btn-row,.played-btn-row{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V37GTNR" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div class="wrapper">
+  <a href="/" class="back-link">Inicio</a>
+  <header>
+    <div class="logo">✦ CopiarCaracteres</div>
+    <h1>Desafío del <span>Símbolo</span></h1>
+    <p class="subtitle">// un símbolo diferente cada día</p>
+  </header>
+
+  <div class="meta-row">
+    <div class="date-badge">📅 <span id="dateText"></span></div>
+    <div class="streak-badge">🔥 <span id="streakText">0</span> días seguidos</div>
+  </div>
+
+  <!-- Challenge card -->
+  <div class="card" id="card">
+    <div class="card-label">¿Puedes escribir este símbolo?</div>
+    <span class="symbol-big" id="symbolBig"></span>
+    <div class="symbol-name" id="symbolName"></div>
+
+    <div class="input-wrap">
+      <input
+        type="text"
+        class="hidden-input"
+        id="mainInput"
+        placeholder="Escribe aquí..."
+        maxlength="5"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+    </div>
+
+    <button class="validate-btn" id="validateBtn" onclick="validate()">Validar →</button>
+
+    <div class="result" id="result">
+      <div class="result-icon" id="resultIcon"></div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-sub" id="resultSub"></div>
+    </div>
+
+    <div class="btn-row" id="btnRow">
+      <button class="sec-btn" onclick="copySymbol()">📋 Copiar símbolo</button>
+      <button class="sec-btn primary" onclick="share()">📤 Compartir</button>
+    </div>
+  </div>
+
+  <!-- Already played -->
+  <div class="played" id="played">
+    <div class="played-icon" id="playedIcon"></div>
+    <div class="played-title" id="playedTitle"></div>
+    <div class="played-symbol" id="playedSymbol"></div>
+    <div class="played-sub">Ya completaste el desafío de hoy.<br/>Vuelve mañana para el siguiente símbolo 🗓️</div>
+    <div class="played-btn-row">
+      <button class="sec-btn" onclick="copySymbol()">📋 Copiar símbolo</button>
+      <button class="sec-btn primary" onclick="share()">📤 Compartir</button>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats">
+    <div class="stat"><div class="stat-n" id="sPlayed">0</div><div class="stat-l">Jugados</div></div>
+    <div class="stat"><div class="stat-n" id="sWon">0</div><div class="stat-l">Ganados</div></div>
+    <div class="stat"><div class="stat-n" id="sStreak">0</div><div class="stat-l">Racha</div></div>
+  </div>
+
+  <div class="divider"></div>
+  <footer><span>CopiarCaracteres</span> · <a href="/" style="color:var(--muted);text-decoration:none">Inicio</a> · <a href="/caracter-invisible.html" style="color:var(--muted);text-decoration:none">Carácter Invisible</a></footer>
+</div>
+
+<div class="toast" id="toast"></div>
+<button class="theme-toggle" id="themeBtn">☀️</button>
+
+<script>
+  const symbols = [
+    {s:'@',  n:'Arroba'},
+    {s:'€',  n:'Euro'},
+    {s:'°',  n:'Grado'},
+    {s:'ñ',  n:'Eñe'},
+    {s:'¿',  n:'Apertura de pregunta'},
+    {s:'¡',  n:'Apertura de exclamación'},
+    {s:'©',  n:'Copyright'},
+    {s:'®',  n:'Marca registrada'},
+    {s:'\\', n:'Barra invertida'},
+    {s:'~',  n:'Tilde'},
+    {s:'|',  n:'Barra vertical'},
+    {s:'#',  n:'Numeral'},
+    {s:'&',  n:'Ampersand'},
+    {s:'%',  n:'Porcentaje'},
+    {s:'™',  n:'Trademark'},
+    {s:'√',  n:'Raíz cuadrada'},
+    {s:'∞',  n:'Infinito'},
+    {s:'÷',  n:'División'},
+    {s:'×',  n:'Multiplicación'},
+    {s:'±',  n:'Más o menos'},
+    {s:'µ',  n:'Micro'},
+    {s:'§',  n:'Sección'},
+    {s:'¶',  n:'Párrafo'},
+    {s:'†',  n:'Cruz'},
+    {s:'£',  n:'Libra esterlina'},
+    {s:'¥',  n:'Yen'},
+    {s:'α',  n:'Alfa'},
+    {s:'β',  n:'Beta'},
+    {s:'π',  n:'Pi'},
+    {s:'Ω',  n:'Omega'},
+  ];
+
+  function getDay() {
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 0);
+    return Math.floor((now - start) / 86400000);
+  }
+
+  function getTodayKey() {
+    const now = new Date();
+    return `desafio_${now.getFullYear()}_${now.getMonth()}_${now.getDate()}`;
+  }
+
+  function getStats() {
+    try { return JSON.parse(localStorage.getItem('desafio_stats') || '{"played":0,"won":0,"streak":0,"lastDate":""}'); }
+    catch { return {played:0,won:0,streak:0,lastDate:''}; }
+  }
+
+  function saveStats(s) { localStorage.setItem('desafio_stats', JSON.stringify(s)); }
+
+  function refreshStats() {
+    const s = getStats();
+    document.getElementById('sPlayed').textContent = s.played;
+    document.getElementById('sWon').textContent = s.won;
+    document.getElementById('sStreak').textContent = s.streak;
+    document.getElementById('streakText').textContent = s.streak;
+  }
+
+  const today = symbols[getDay() % symbols.length];
+  let lastResult = null;
+
+  function init() {
+    document.getElementById('symbolBig').textContent = today.s;
+    document.getElementById('symbolName').textContent = today.n;
+
+    const saved = localStorage.getItem(getTodayKey());
+    if (saved) {
+      lastResult = JSON.parse(saved);
+      showPlayed();
+    }
+    refreshStats();
+  }
+
+  function showPlayed() {
+    document.getElementById('card').style.display = 'none';
+    const p = document.getElementById('played');
+    p.style.display = 'block';
+    p.style.opacity = '0';
+    p.style.animation = 'fadeUp 0.5s ease forwards 0.4s';
+    document.getElementById('playedIcon').textContent = lastResult.won ? '🏆' : '😅';
+    document.getElementById('playedTitle').textContent = lastResult.won ? '¡Lo lograste!' : 'No fue esta vez';
+    document.getElementById('playedSymbol').textContent = today.s;
+  }
+
+  function validate() {
+    const input = document.getElementById('mainInput').value;
+    if (!input.trim()) { showToast('Escribe algo primero'); return; }
+
+    const won = input.trim() === today.s;
+    lastResult = { won, symbol: today.s };
+
+    // Save
+    localStorage.setItem(getTodayKey(), JSON.stringify(lastResult));
+
+    // Update stats
+    const stats = getStats();
+    const todayStr = new Date().toDateString();
+    const yesterday = new Date(); yesterday.setDate(yesterday.getDate()-1);
+    stats.played++;
+    if (won) {
+      stats.won++;
+      stats.streak = stats.lastDate === yesterday.toDateString() ? stats.streak + 1 : 1;
+      stats.lastDate = todayStr;
+    } else if (stats.lastDate !== todayStr) {
+      stats.streak = 0;
+    }
+    saveStats(stats);
+    refreshStats();
+
+    // Show result
+    const card = document.getElementById('card');
+    const result = document.getElementById('result');
+    const btnRow = document.getElementById('btnRow');
+    const symbolBig = document.getElementById('symbolBig');
+
+    result.style.display = 'block';
+    btnRow.style.display = 'grid';
+    document.getElementById('mainInput').disabled = true;
+    document.getElementById('validateBtn').disabled = true;
+
+    if (won) {
+      card.classList.add('success');
+      result.className = 'result success';
+      document.getElementById('resultIcon').textContent = '🎉';
+      document.getElementById('resultTitle').textContent = '¡Lo lograste! Eres un experto';
+      document.getElementById('resultSub').textContent = `Escribiste "${today.s}" (${today.n}) correctamente`;
+      symbolBig.classList.add('pop');
+      setTimeout(()=>symbolBig.classList.remove('pop'),400);
+    } else {
+      card.classList.add('fail');
+      result.className = 'result fail';
+      document.getElementById('resultIcon').textContent = '😅';
+      document.getElementById('resultTitle').textContent = 'Casi... intenta mañana con otro';
+      document.getElementById('resultSub').textContent = `El símbolo era "${today.s}" · Tú escribiste "${input.trim()}"`;
+      card.classList.add('shake');
+      setTimeout(()=>card.classList.remove('shake'),400);
+    }
+  }
+
+  function copySymbol() {
+    navigator.clipboard.writeText(today.s).catch(()=>{});
+    showToast(`"${today.s}" copiado`);
+  }
+
+  function share() {
+    const emoji = lastResult && lastResult.won ? '🏆' : '😅';
+    const text = `${emoji} Desafío del Símbolo del día\n¿Puedes escribir "${today.s}" (${today.n}) en tu teclado?\n\n🎯 copiarcaracteres.com/desafio.html`;
+    if (navigator.share) {
+      navigator.share({text}).catch(()=>{});
+    } else {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('¡Texto copiado! Pégalo donde quieras 📋');
+      }).catch(() => {
+        showToast('Comparte: copiarcaracteres.com/desafio.html');
+      });
+    }
+  }
+
+  // Masked input — shows ● but stores real value
+  let realValue = '';
+  const mainInput = document.getElementById('mainInput');
+  mainInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Backspace') {
+      e.preventDefault();
+      realValue = realValue.slice(0, -1);
+      this.value = '●'.repeat(realValue.length);
+    } else if (e.key === 'Enter') {
+      validate();
+    }
+  });
+  mainInput.addEventListener('input', function(e) {
+    const raw = this.value;
+    // Only process if not already masked
+    if (!raw.includes('●')) {
+      realValue = raw.slice(0, 5);
+    } else {
+      return;
+    }
+    this.value = '●'.repeat(realValue.length);
+  });
+
+  // Override validate to use realValue
+  const origValidate = validate;
+  validate = function() {
+    const input = realValue;
+    if (!input.trim()) { showToast('Escribe algo primero'); return; }
+    const won = input.trim() === today.s;
+    lastResult = { won, symbol: today.s };
+    localStorage.setItem(getTodayKey(), JSON.stringify(lastResult));
+    const stats = getStats();
+    const todayStr = new Date().toDateString();
+    const yesterday = new Date(); yesterday.setDate(yesterday.getDate()-1);
+    stats.played++;
+    if (won) {
+      stats.won++;
+      stats.streak = stats.lastDate === yesterday.toDateString() ? stats.streak + 1 : 1;
+      stats.lastDate = todayStr;
+    } else if (stats.lastDate !== todayStr) {
+      stats.streak = 0;
+    }
+    saveStats(stats);
+    refreshStats();
+    const card = document.getElementById('card');
+    const result = document.getElementById('result');
+    const btnRow = document.getElementById('btnRow');
+    const symbolBig = document.getElementById('symbolBig');
+    result.style.display = 'block';
+    btnRow.style.display = 'grid';
+    mainInput.disabled = true;
+    document.getElementById('validateBtn').disabled = true;
+    if (won) {
+      card.classList.add('success');
+      result.className = 'result success';
+      document.getElementById('resultIcon').textContent = '🎉';
+      document.getElementById('resultTitle').textContent = '¡Lo lograste! Eres un experto';
+      document.getElementById('resultSub').textContent = `Escribiste "${today.s}" (${today.n}) correctamente`;
+      symbolBig.classList.add('pop');
+      setTimeout(()=>symbolBig.classList.remove('pop'),400);
+    } else {
+      card.classList.add('fail');
+      result.className = 'result fail';
+      document.getElementById('resultIcon').textContent = '😅';
+      document.getElementById('resultTitle').textContent = 'Casi... intenta mañana con otro';
+      document.getElementById('resultSub').textContent = `El símbolo era "${today.s}" · Tú escribiste "${input.trim()}"`;
+      card.classList.add('shake');
+      setTimeout(()=>card.classList.remove('shake'),400);
+    }
+  };
+
+  // Date
+  const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const dias = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  const now = new Date();
+  document.getElementById('dateText').textContent = `${dias[now.getDay()]} ${now.getDate()} de ${meses[now.getMonth()]}`;
+
+  init();
+
+  // Theme
+  const themeBtn = document.getElementById('themeBtn');
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  if (savedTheme === 'light') { document.body.classList.add('light'); themeBtn.textContent = '🌙'; }
+  themeBtn.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('light');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    themeBtn.textContent = isLight ? '🌙' : '☀️';
+  });
+
+  let t;
+  function showToast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg; el.classList.add('show');
+    clearTimeout(t); t = setTimeout(()=>el.classList.remove('show'),1800);
+  }
+</script>
+</body>
+</html>
