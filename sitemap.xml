@@ -89,6 +89,25 @@
   </url>
 
   <url>
+    <loc>https://copiarcaracteres.com/numeros.html</loc>
+    <lastmod>2025-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://copiarcaracteres.com/jeroglificos.html</loc>
+    <lastmod>2025-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://copiarcaracteres.com/letras-unicode.html</loc>
+    <lastmod>2025-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://copiarcaracteres.com/desafio.html</loc>
     <lastmod>2025-03-14</lastmod>
     <changefreq>daily</changefreq>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Letras Unicode Especiales para Copiar 𝔄 ℌ ℜ | CopiarCaracteres</title>
+  <meta name="description" content="Copia letras unicode especiales: letras de doble trazo, letras script, letras técnicas, letras con marcas y más. Gratis y sin instalar nada."/>
+  <meta name="keywords" content="letras unicode copiar, letras doble trazo copiar, letras script copiar, letras especiales unicode, letras tecnicas copiar, letras con simbolos"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://copiarcaracteres.com/letras-unicode.html"/>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZB0VDKV0CP"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZB0VDKV0CP');</script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0a;--surface:#111;--border:#222;--accent:#e8ff47;--text:#f0f0f0;--muted:#555;--btn-bg:#161616;--btn-hover:#1e1e1e;--btn-border:#2a2a2a}
+    body.light{--bg:#f5f5f0;--surface:#fff;--border:#ddd;--accent:#4a8000;--text:#111;--muted:#555;--btn-bg:#fff;--btn-hover:#f0f0f0;--btn-border:#ccc}
+    body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:48px 20px 60px;position:relative;overflow-x:hidden;transition:background 0.2s,color 0.2s}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(232,255,71,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+    body.light::before{background-image:linear-gradient(rgba(0,0,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,0.04) 1px,transparent 1px)}
+    .wrapper{position:relative;z-index:1;width:100%;max-width:720px}
+    .back-link{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;margin-bottom:32px;transition:color 0.15s}
+    .back-link:hover{color:var(--accent)}
+    .back-link::before{content:'←';font-size:14px}
+    header{text-align:center;margin-bottom:40px}
+    .logo{font-size:13px;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;opacity:0;animation:fadeUp 0.5s ease forwards 0.1s}
+    h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;opacity:0;animation:fadeUp 0.5s ease forwards 0.2s}
+    h1 span{color:var(--accent)}
+    .subtitle{font-size:14px;color:var(--muted);margin-top:10px;font-family:'JetBrains Mono',monospace;opacity:0;animation:fadeUp 0.5s ease forwards 0.3s}
+    .chars-section{opacity:0;animation:fadeUp 0.5s ease forwards 0.4s}
+    .char-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:20px}
+    .char-btn{background:var(--btn-bg);border:1px solid var(--btn-border);color:var(--text);cursor:pointer;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;position:relative;overflow:hidden;transition:border-color 0.15s,background 0.15s,transform 0.1s;user-select:none;padding:12px 6px 8px}
+    .char-btn::after{content:'';position:absolute;inset:0;background:var(--accent);opacity:0;transition:opacity 0.2s}
+    .char-btn:hover{border-color:var(--accent);background:var(--btn-hover);transform:translateY(-2px)}
+    .char-btn:active{transform:translateY(0)}
+    .char-btn.copied::after{opacity:0.08}
+    .char-symbol{font-family:'JetBrains Mono',monospace;font-size:20px;font-weight:700;line-height:1}
+    .char-name{font-size:7px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+    .group-title{font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px}
+    .divider{width:100%;height:1px;background:var(--border);margin:28px 0}
+    .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--accent);color:#000;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:10px 22px;border-radius:100px;opacity:0;transition:transform 0.25s ease,opacity 0.25s ease;z-index:100;pointer-events:none}
+    .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+    footer{text-align:center;font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace}
+    footer span{color:var(--accent)}
+    .theme-toggle{position:fixed;top:16px;right:16px;z-index:999;background:var(--surface);border:1px solid var(--border);color:var(--text);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+    .theme-toggle:hover{border-color:var(--accent);transform:scale(1.1)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <a href="/" class="back-link">Inicio</a>
+  <header>
+    <div class="logo">✦ CopiarCaracteres</div>
+    <h1>Letras <span>Unicode</span></h1>
+    <p class="subtitle">// letras especiales · haz clic para copiar</p>
+  </header>
+  <div class="chars-section" id="allGroups"></div>
+  <div class="divider"></div>
+  <footer><span>CopiarCaracteres</span> · <a href="/" style="color:var(--muted);text-decoration:none">Inicio</a> · <a href="/letras-raras.html" style="color:var(--muted);text-decoration:none">Letras Raras</a> · <a href="/privacidad.html" style="color:var(--muted);text-decoration:none">Privacidad</a></footer>
+</div>
+<div class="toast" id="toast"></div>
+<button class="theme-toggle" id="themeBtn">☀️</button>
+<script>
+  const groups = [
+    {title:'Letras de doble trazo (Blackboard Bold)', chars:[['𝔸','A'],['𝔹','B'],['ℂ','C'],['𝔻','D'],['𝔼','E'],['𝔽','F'],['𝔾','G'],['ℍ','H'],['𝕀','I'],['𝕁','J'],['𝕂','K'],['𝕃','L'],['𝕄','M'],['ℕ','N'],['𝕆','O'],['ℙ','P'],['ℚ','Q'],['ℝ','R'],['𝕊','S'],['𝕋','T'],['𝕌','U'],['𝕍','V'],['𝕎','W'],['𝕏','X'],['𝕐','Y'],['ℤ','Z']]},
+    {title:'Letras script / caligráficas', chars:[['𝒜','A'],['ℬ','B'],['𝒞','C'],['𝒟','D'],['ℰ','E'],['ℱ','F'],['𝒢','G'],['ℋ','H'],['ℐ','I'],['𝒥','J'],['𝒦','K'],['ℒ','L'],['ℳ','M'],['𝒩','N'],['𝒪','O'],['𝒫','P'],['𝒬','Q'],['ℛ','R'],['𝒮','S'],['𝒯','T'],['𝒰','U'],['𝒱','V'],['𝒲','W'],['𝒳','X'],['𝒴','Y'],['𝒵','Z']]},
+    {title:'Letras técnicas y científicas', chars:[['Å','Angström'],['Ω','Ohm'],['µ','Micro'],['℃','Celsius'],['℉','Fahrenheit'],['℅','c/o'],['℆','c/u'],['№','Número'],['℗','Fonograma'],['℘','Weierstrass'],['ℜ','Real'],['ℑ','Imaginario'],['℞','Receta'],['℟','Respuesta'],['℠','Service'],['℡','Teléfono'],['™','Trademark'],['ℤ','Enteros'],['ℕ','Naturales'],['ℚ','Racionales'],['ℝ','Reales'],['ℂ','Complejos']]},
+    {title:'Letras con marcas diacríticas', chars:[['Ā','A largo'],['ā','a largo'],['Ē','E largo'],['ē','e largo'],['Ī','I largo'],['ī','i largo'],['Ō','O largo'],['ō','o largo'],['Ū','U largo'],['ū','u largo'],['Ă','A breve'],['ă','a breve'],['Ĕ','E breve'],['ĕ','e breve'],['Ğ','G breve'],['ğ','g breve'],['Ĭ','I breve'],['ĭ','i breve'],['Ŏ','O breve'],['ŏ','o breve'],['Ŭ','U breve'],['ŭ','u breve']]},
+    {title:'Letras latinas extendidas', chars:[['Æ','AE'],['æ','ae'],['Œ','OE'],['œ','oe'],['Ø','O tachada'],['ø','o tachada'],['Ð','Eth'],['ð','eth'],['Þ','Thorn'],['þ','thorn'],['ß','Eszett'],['Ŋ','Eng'],['ŋ','eng'],['Ĳ','IJ'],['ĳ','ij'],['ĸ','Kra'],['ŉ','n apóst.'],['ŀ','l punto'],['ł','l barra'],['ƒ','Florin'],['Ʒ','Ezh'],['ʒ','ezh']]},
+  ];
+  const container = document.getElementById('allGroups');
+  groups.forEach(g => {
+    const title = document.createElement('p'); title.className='group-title'; title.textContent=g.title; container.appendChild(title);
+    const grid = document.createElement('div'); grid.className='char-grid';
+    g.chars.forEach(([sym,name]) => {
+      const btn = document.createElement('button'); btn.className='char-btn';
+      btn.innerHTML=`<span class="char-symbol">${sym}</span><span class="char-name">${name}</span>`;
+      btn.addEventListener('click',()=>{ navigator.clipboard.writeText(sym).catch(()=>{}); btn.classList.add('copied'); setTimeout(()=>btn.classList.remove('copied'),300); showToast(`"${sym}" copiado`); });
+      grid.appendChild(btn);
+    }); container.appendChild(grid);
+  });
+  let t; function showToast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(t);t=setTimeout(()=>el.classList.remove('show'),1800)}
+  const btn=document.getElementById('themeBtn'); const saved=localStorage.getItem('theme')||'dark';
+  if(saved==='light'){document.body.classList.add('light');btn.textContent='🌙';}
+  btn.addEventListener('click',()=>{const isLight=document.body.classList.toggle('light');localStorage.setItem('theme',isLight?'light':'dark');btn.textContent=isLight?'🌙':'☀️';});
+</script>
+</body>
+</html>
